@@ -1,242 +1,215 @@
 /* CODESTITCH STYLES, RESET, HEADER/NAVIGATION AND FOOTER */
-
 /*-- -------------------------- -->
 <---        Core Styles         -->
 <--- -------------------------- -*/
-
 /* CodeStitch Root and Helpers */
 @media only screen and (min-width: 0em) {
-	:root {
-		--primary: #c00065;
-		--primaryLight: #8c5363;
-		--secondary: #302321;
-		--secondaryLight: #423432;
-		--headerColor: #1a1a1a;
-		--bodyTextColor: #4e4b66;
-		--bodyTextColorWhite: #fafbfc;
+  :root {
+    /* === BRAND COLOURS === */
 
-		/* dark mode colors */
-		--primaryDark: #fab0c6;
-		--dark: #1d1715;
-		--medium: #1d1715;
-		--accent: #460b05;
-		--grey: hsl(224, 14%, 16%);
-		--light: hsl(230, 20%, 94%);
+    /* Primary — Astroship violet */
+    --primary: #7c3aed;
+    --primaryLight: #a78bfa;
+    --primaryDark: #4c1d95;
 
-		/* 13px - 16px */
-		--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
-		/* 31px - 49px */
-		--headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
-		--bodyFontSize: 1rem;
+    /* Secondary — warm Ethiopian gold/earth */
+    --secondary: #92400e;
+    --secondaryLight: #d97706;
 
-		/* 60px - 100px top and bottom */
-		--sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-	}
+    /* Accent — Ethiopian liturgical gold */
+    --accent: #f59e0b;
 
-	// Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
-	.cs-topper {
-		font-size: var(--topperFontSize);
-		font-weight: 700;
-		line-height: 1.2em;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--primaryLight);
-		display: block;
-	}
+    /* === BACKGROUNDS === */
+    --light: #fafafa;       /* page background */
+    --medium: #f4f4f5;      /* alternate section background */
+    --grey: #e4e4e7;        /* borders, dividers, input outlines */
+    --dark: #09090b;        /* footer background, dark sections */
 
-	.cs-title {
-		font-size: var(--headerFontSize);
-		font-weight: 900;
-		line-height: 1.2em;
-		margin: 0 auto (16/16rem);
-		color: var(--headerColor);
-		position: relative;
-	}
+    /* === TEXT === */
+    --headerColor: #09090b;         /* headings — near black */
+    --bodyTextColor: #52525b;       /* body paragraphs — zinc-600 */
+    --bodyTextColorWhite: #fafafa;  /* text on dark backgrounds (footer etc) */
 
-	.cs-text {
-		font-size: var(--bodyFontSize);
-		line-height: 1.5em;
-		width: 100%;
-		margin: 0 auto;
-		color: var(--bodyTextColor);
-	}
+    /* === TYPOGRAPHY === */
+    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+    --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+    --bodyFontSize: 1rem;
 
-	// Button - can be replaced using CodeStitch's "Button" Stitches
-	.cs-button-solid {
-		font-size: (16/16rem);
-		font-weight: bold;
-		line-height: (50/16em);
-		text-align: center;
-		text-transform: uppercase;
-		text-decoration: none;
-		width: auto;
-		height: (50/16rem);
-		padding: 0 (30/16rem);
+    /* === SPACING === */
+    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
 
-		// Transition Properties
-		color: var(--light);
-		background-color: var(--primary);
-		display: inline-block;
-		position: relative;
-		z-index: 1;
-		transition: color 0.3s;
-		transition-delay: 0.1s;
+    /* === SHAPE === */
+    --borderRadius: 0.75rem;     /* cards, section containers */
+    --borderRadiusSm: 0.5rem;    /* buttons, inputs, tags */
+  }
 
-		&:hover {
-			color: #fff;
-			&:before {
-				width: 100%;
-			}
-		}
+  // Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
+  .cs-topper {
+    font-size: var(--topperFontSize);
+    font-weight: 700;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    display: block;
+  }
 
-		&:before {
-			content: "";
+  .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    margin: 0 auto (16/16rem);
+    color: var(--headerColor);
+    position: relative;
+  }
 
-			//Transition properties
-			width: 0;
-			height: 100%;
-			background-color: #000;
-			opacity: 1;
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: -1;
-			transition: width 0.3s;
-		}
-	}
-}
+  .cs-text {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    width: 100%;
+    margin: 0 auto;
+    color: var(--bodyTextColor);
+  }
 
-/* Dark mode general styles */
-@media only screen and (min-width: 0em) {
-	body.dark-mode {
-		background-color: var(--dark);
+  // Button - can be replaced using CodeStitch's "Button" Stitches
+  .cs-button-solid {
+    font-size: (16/16rem);
+    font-weight: 600;
+    line-height: (50/16em);
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    width: auto;
+    height: (50/16rem);
+    padding: 0 (30/16rem);
+    color: #fff;
+    background-color: var(--primary);
+    border-radius: var(--borderRadiusSm);
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.2s ease, transform 0.15s ease;
 
-		/* Fallback text color */
-		p,
-		li,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			color: #fff;
-		}
+    &:hover {
+      color: #fff;
+      background-color: var(--primaryDark);
+      transform: translateY(-1px);
 
-		.cs-topper {
-			color: var(--primaryDark);
-		}
+      &:before {
+        width: 0;
+      }
+    }
 
-		.cs-reviewer {
-			color: var(--bodyTextColorWhite);
-		}
-	}
+    &:before {
+      display: none;
+    }
+  }
 }
 
 /* Fonts and general styles */
 @media only screen and (min-width: 0em) {
-	body,
-	html {
-		font-family: var(--font-primary);
-		font-size: 100%;
-		margin: 0;
-		padding: 0;
-		color: var(--bodyTextColor);
-		overflow-x: hidden;
-	}
+  body,
+  html {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--bodyTextColor);
+    background-color: var(--light);
+    overflow-x: hidden;
+  }
 
-	*,
-	*:before,
-	*:after {
-		margin: 0;
-		box-sizing: border-box;
-		padding: 0;
-	}
+  *,
+  *:before,
+  *:after {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+  }
 
-	body {
-		transition: background-color 0.3s;
-	}
+  body {
+    transition: background-color 0.3s;
+  }
 
-	.container {
-		width: 92%;
-		margin: auto;
-		position: relative;
-	}
+  .container {
+    width: 92%;
+    margin: auto;
+    position: relative;
+  }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin: 0;
-		color: var(--headerColor);
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: var(--headerColor);
+  }
 
-	p,
-	li,
-	a {
-		font-size: (16/16rem);
-		line-height: 1.5em;
-		margin: 0;
-	}
+  p,
+  li,
+  a {
+    font-size: (16/16rem);
+    line-height: 1.5em;
+    margin: 0;
+  }
 
-	p,
-	li {
-		color: #353535;
-	}
+  p,
+  li {
+    color: var(--bodyTextColor);
+  }
 
-	a,
-	button {
-		&:hover {
-			cursor: pointer;
-		}
-	}
+  a,
+  button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
-	// Hidden Screen reader skip nav button
-	.skip {
-		opacity: 0;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1111111;
-	}
+  // Hidden Screen reader skip nav button
+  .skip {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1111111;
+  }
 }
 
 /* Reset Margins */
 @media only screen and (min-width: 1024px) {
-	body,
-	html {
-		margin: 0;
-		padding: 0;
-	}
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 /* Scale full website with the viewport width */
 @media only screen and (min-width: 2000px) {
-	body,
-	html {
-		font-size: 0.85vw;
-	}
+  body,
+  html {
+    font-size: 0.85vw;
+  }
 }
 
 .sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
-	border-width: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .cs-hidden {
-	display: none;
+  display: none;
 }
 
 .cs-shown {
-	display: flex;
+  display: flex;
 }

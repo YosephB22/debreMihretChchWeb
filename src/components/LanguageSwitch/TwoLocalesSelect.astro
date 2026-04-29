@@ -208,29 +208,4 @@ const languageOptions = await Promise.all(
     border-width: 0;
   }
 
-  /* Dark mode styles */
-  body.dark-mode {
-    .toggle-track {
-      background: var(--medium);
-      border-color: var(--grey);
-
-      &:hover {
-        border-color: var(--primaryLight);
-      }
-    }
-
-    .language-option {
-      color: var(--light);
-      opacity: 0.7;
-
-      &:hover {
-        opacity: 0.9;
-      }
-
-      &.is-selected {
-        color: var(--light);
-        opacity: 1;
-      }
-    }
-  }
 </style>
