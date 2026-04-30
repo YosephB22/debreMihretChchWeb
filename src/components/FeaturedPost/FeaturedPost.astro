@@ -23,7 +23,7 @@ const featuredPosts = await getCollection("blog", ({ id, data }) => {
           <Picture src={post.data.image} alt={post.data.imageAlt} width={60} formats={["avif", "webp"]} pictureAttributes={{ class: "blog-featureImage" }} decoding="async" />
           <div class="content-group">
             <h3 class="feature-h3">{post.data.title}</h3>
-            <span class="feature-date">{formatDate(post.data.date)}</span>
+            <span class="feature-date">{formatDate(post.data.date, locale)}</span>
           </div>
         </a>
       ))

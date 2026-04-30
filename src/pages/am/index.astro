@@ -1,18 +1,114 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import BrowserLanguageRedirect from "@components/LanguageSwitch/BrowserLanguageRedirect.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
-import { useTranslations } from "@js/translationUtils";
+import { useTranslations, getLocalizedRoute } from "@js/translationUtils";
+import { BUSINESS } from "@data/client";
+
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
 ---
 
-<BrowserLanguageRedirect />
+<BaseLayout title={t("home")} description={t("home:hero.subtitle")}>
 
-<BaseLayout title="Welcome" description="Welcome to our website">
-	<section style="padding: 8rem 1rem; text-align: center;">
-		<h1>Welcome</h1>
-		<p>Your new site is ready. Start building!</p>
-		<a href="/contact" style="display:inline-block; margin-top:1rem; padding:0.75rem 1.5rem; background:var(--primary); color:#fff; text-decoration:none; border-radius:4px;">Contact Us</a>
+	<section id="hero">
+		<div class="cs-container">
+			<span class="cs-topper">{t("home:hero.welcome")}</span>
+			<h1 class="cs-title">{t("home:hero.name")}</h1>
+			<p class="cs-text">{t("home:hero.subtitle")}</p>
+			<a href={getLocalizedRoute(locale, "/services")} class="cs-button-solid">{t("home:hero.cta")}</a>
+		</div>
 	</section>
+
+	<section id="schedule">
+		<div class="cs-container">
+			<span class="cs-topper">{t("home:schedule.topper")}</span>
+			<h2 class="cs-title">{t("home:schedule.title")}</h2>
+			<div class="schedule-grid">
+				<div class="schedule-card">
+					<h3>{t("home:schedule.sunday.day")}</h3>
+					<p class="schedule-name">{t("home:schedule.sunday.name")}</p>
+					<p class="schedule-time">{t("home:schedule.sunday.time")}</p>
+				</div>
+				<div class="schedule-card">
+					<h3>{t("home:schedule.wednesday.day")}</h3>
+					<p class="schedule-name">{t("home:schedule.wednesday.name")}</p>
+					<p class="schedule-time">{t("home:schedule.wednesday.time")}</p>
+				</div>
+				<div class="schedule-card">
+					<h3>{t("home:schedule.saturday.day")}</h3>
+					<p class="schedule-name">{t("home:schedule.saturday.name")}</p>
+					<p class="schedule-time">{t("home:schedule.saturday.time")}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="about-preview">
+		<div class="cs-container">
+			<span class="cs-topper">{t("home:about.topper")}</span>
+			<h2 class="cs-title">{t("home:about.title")}</h2>
+			<p class="cs-text">{t("home:about.p")}</p>
+			<a href={getLocalizedRoute(locale, "/about")} class="cs-button-solid">{t("home:about.cta")}</a>
+		</div>
+	</section>
+
+	<section id="cta">
+		<div class="cs-container">
+			<h2 class="cs-title">{t("home:cta.title")}</h2>
+			<p class="cs-text">{t("home:cta.p")}</p>
+			<a href={getLocalizedRoute(locale, "/contact")} class="cs-button-solid">{t("home:cta.button")}</a>
+		</div>
+	</section>
+
 </BaseLayout>
+
+<style lang="less">
+	#hero {
+		padding: clamp(6rem, 12vw, 10rem) 1rem clamp(3.75rem, 7.82vw, 6.25rem);
+		text-align: center;
+		background: var(--dark);
+		color: var(--bodyTextColorWhite);
+
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-topper { color: var(--accent); }
+		.cs-title { color: #fff; font-size: clamp(2rem, 5vw, 3.25rem); margin-bottom: 1rem; }
+		.cs-text { color: rgba(255, 255, 255, 0.8); max-width: (600/16rem); margin: 0 auto 2rem; }
+		.cs-button-solid { background-color: var(--accent); color: var(--dark); &:hover { background-color: var(--secondaryLight); } }
+	}
+
+	#schedule {
+		padding: var(--sectionPadding);
+		text-align: center;
+		.cs-container { max-width: (1280/16rem); margin: 0 auto; }
+		.schedule-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+		.schedule-card {
+			padding: 2rem; background: var(--medium); border-radius: var(--borderRadius); border-left: 4px solid var(--primary);
+			h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 0.5rem; }
+			.schedule-name { font-weight: 600; color: var(--headerColor); margin-bottom: 0.25rem; }
+			.schedule-time { color: var(--bodyTextColor); }
+		}
+	}
+
+	#about-preview {
+		padding: var(--sectionPadding);
+		text-align: center;
+		background: var(--medium);
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-text { margin-bottom: 2rem; }
+	}
+
+	#cta {
+		padding: var(--sectionPadding);
+		text-align: center;
+		background: var(--primary);
+		color: #fff;
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-title { color: #fff; }
+		.cs-text { color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem; }
+		.cs-button-solid { background-color: #fff; color: var(--primary); &:hover { background-color: var(--light); } }
+	}
+
+	@media only screen and (min-width: 48rem) {
+		#schedule .schedule-grid { grid-template-columns: repeat(3, 1fr); }
+	}
+</style>

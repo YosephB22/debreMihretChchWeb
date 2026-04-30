@@ -1,18 +1,18 @@
 export const SITE = {
-  title: "Code Stitch Web Designs",
-  tagline: "Pixel Perfect Websites",
-  description: "Meta description for the page",
-  url: "https://www.codestitch.app",
-  author: "Code Stitch",
+  title: "Debre Mihret Kidus Gebriel EOTC",
+  tagline: "St. Gebriel Ethiopian Orthodox Tewahedo Church",
+  description: "Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church in Christchurch, New Zealand",
+  url: "https://www.yourwebsite.com", // TODO: update with real domain
+  author: "St. Gebriel EOTC",
   locale: "en",
 };
 
 export const BUSINESS = {
   name: "Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church",
   nameShort: "St. Gebriel EOTC – Christchurch",
-  email: "help@codestitch.app",
-  phoneForTel: "555-779-4407",
-  phoneFormatted: "(555) 779-4407",
+  email: "", // TODO: add real email
+  phoneForTel: "", // TODO: add real phone
+  phoneFormatted: "", // TODO: add real phone
   logo: "/favicon.svg", // update to the URL of your logo image
   address: {
     lineOne: "3 Praem Place", // confirm exact street — known suburb: Shirley
@@ -24,12 +24,12 @@ export const BUSINESS = {
     mapLink: "", // add Google Maps link once address confirmed
   },
   socials: {
-    facebook: "https://www.facebook.com",
-    instagram: "https://www.instagram.com",
+    facebook: "", // TODO: add real Facebook page
+    instagram: "", // TODO: add real Instagram page
   },
 };
 
 export const OG = {
-  locale: "en_US",
+  locale: "en_NZ",
   image: "/assets/social.jpg",
 };

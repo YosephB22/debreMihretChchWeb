@@ -4,10 +4,19 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getLocalizedRoute } from "@js/translationUtils";
+import type { Locale } from "@config/siteSettings";
 import Settings from "@components/Settings/Settings.astro";
 import logoBlack from "@assets/svgs/logo-black.svg";
 
+type NavEntry = {
+	key: string;
+	url: string;
+	label: Record<Locale, string>;
+	children: NavEntry[];
+};
+
 const locale = getLocaleFromUrl(Astro.url);
+const entries = navData as NavEntry[];
 ---
 
 <header id="cs-navigation">
@@ -30,9 +39,9 @@ const locale = getLocaleFromUrl(Astro.url);
 			<!-- This also allows for easy substitution of CodeStitch navigations. Just replace the .cs-ul-wrapper in the new navigation with this one -->
 			<div class="cs-ul-wrapper">
 				<ul id="cs-expanded-ul" class="cs-ul">
-					<!-- Note: `:any` is solely used to stop the TypeScript warnings. It's an upstream issue with the i18n package which does not impact the code. -->
+					<!-- Navigation items -->
 					{
-						navData.map((entry: any) => (
+						entries.map((entry) => (
 							<li class:list={["cs-li", { "cs-dropdown": entry.children?.length > 0 }]}>
 								{entry.children?.length > 0 ? (
 									// If entry has children in navData.json, create a button and a dropdown icon
@@ -59,7 +68,7 @@ const locale = getLocaleFromUrl(Astro.url);
 								{entry.children?.length > 0 && (
 									// If entry has children in navData.json, create a drop down menu
 									<ul id={`submenu-${entry.key}`} class="cs-drop-ul">
-										{entry.children.map((child: any) => (
+										{entry.children.map((child) => (
 											<li class="cs-drop-li">
 												<a href={getLocalizedRoute(locale,child.url)} class="cs-li-link cs-drop-link" aria-current={Astro.url.pathname === getLocalizedRoute(locale,child.url) ? "page" : undefined}>
 													{child.label[locale]}

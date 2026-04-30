@@ -4,7 +4,52 @@
 		"url": "/",
 		"label": {
 			"en": "Home",
-			"fr": "Accueil"
+			"am": "መነሻ"
+		},
+		"children": []
+	},
+	{
+		"key": "about",
+		"url": "/about",
+		"label": {
+			"en": "About",
+			"am": "ስለ እኛ"
+		},
+		"children": []
+	},
+	{
+		"key": "services",
+		"url": "/services",
+		"label": {
+			"en": "Services",
+			"am": "አገልግሎት"
+		},
+		"children": []
+	},
+	{
+		"key": "blog",
+		"url": "/blog",
+		"label": {
+			"en": "News",
+			"am": "ዜና"
+		},
+		"children": []
+	},
+	{
+		"key": "gallery",
+		"url": "/gallery",
+		"label": {
+			"en": "Gallery",
+			"am": "ፎቶዎች"
+		},
+		"children": []
+	},
+	{
+		"key": "donate",
+		"url": "/donate",
+		"label": {
+			"en": "Donate",
+			"am": "ልገሳ"
 		},
 		"children": []
 	},
@@ -13,7 +58,7 @@
 		"url": "/contact",
 		"label": {
 			"en": "Contact",
-			"fr": "Contact"
+			"am": "አግኙን"
 		},
 		"children": []
 	}

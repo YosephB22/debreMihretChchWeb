@@ -1,0 +1,68 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { useTranslations } from "@js/translationUtils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+---
+
+<BaseLayout title={t("about:title")} description={t("about:description")}>
+
+	<section id="page-header">
+		<div class="cs-container">
+			<span class="cs-topper">{t("about:history.topper")}</span>
+			<h1 class="cs-title">{t("about:history.title")}</h1>
+		</div>
+	</section>
+
+	<section id="content">
+		<div class="cs-container">
+			<div class="content-block">
+				<p class="cs-text">{t("about:history.p1")}</p>
+				<p class="cs-text">{t("about:history.p2")}</p>
+			</div>
+
+			<div class="content-block">
+				<span class="cs-topper">{t("about:faith.topper")}</span>
+				<h2 class="cs-title">{t("about:faith.title")}</h2>
+				<p class="cs-text">{t("about:faith.p1")}</p>
+				<p class="cs-text">{t("about:faith.p2")}</p>
+			</div>
+
+			<div class="content-block">
+				<span class="cs-topper">{t("about:clergy.topper")}</span>
+				<h2 class="cs-title">{t("about:clergy.title")}</h2>
+				<p class="cs-text">{t("about:clergy.placeholder")}</p>
+			</div>
+		</div>
+	</section>
+
+</BaseLayout>
+
+<style lang="less">
+	#page-header {
+		padding: clamp(6rem, 12vw, 10rem) 1rem clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		background: var(--dark);
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-topper { color: var(--accent); }
+		.cs-title { color: #fff; }
+	}
+
+	#content {
+		padding: var(--sectionPadding);
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+
+		.content-block {
+			margin-bottom: 3rem;
+
+			&:last-child { margin-bottom: 0; }
+
+			.cs-text {
+				margin-bottom: 1rem;
+				&:last-child { margin-bottom: 0; }
+			}
+		}
+	}
+</style>

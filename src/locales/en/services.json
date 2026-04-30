@@ -1,0 +1,70 @@
+{
+	"title": "Services & Schedule",
+	"description": "Service times, fasting calendar, and feast days at St. Gebriel EOTC Christchurch",
+	"schedule": {
+		"topper": "Weekly Schedule",
+		"title": "Service Times",
+		"items": [
+			{
+				"day": "Sunday",
+				"name": "Holy Liturgy (Kidase)",
+				"time": "7:00 AM – 11:00 AM",
+				"description": "The main weekly service including the Holy Communion"
+			},
+			{
+				"day": "Wednesday",
+				"name": "Midweek Prayer",
+				"time": "6:00 PM – 7:30 PM",
+				"description": "Evening prayer and spiritual teaching"
+			},
+			{
+				"day": "Saturday",
+				"name": "Kidase & Sunday School",
+				"time": "8:00 AM – 12:00 PM",
+				"description": "Morning liturgy followed by children's Sunday School and Amharic classes"
+			}
+		],
+		"note": "Service times may change during fasting seasons and major feast days. Please check our news page for updates."
+	},
+	"fasting": {
+		"topper": "Fasting (Tsom)",
+		"title": "Fasting Seasons",
+		"p": "Fasting is a central part of Ethiopian Orthodox spiritual life. The faithful abstain from all animal products during fasting periods. Major fasting seasons include:",
+		"items": [
+			{
+				"name": "Hudadi / Lent (Abiy Tsom)",
+				"period": "55 days before Easter",
+				"description": "The Great Fast — the longest and most important fasting period"
+			},
+			{
+				"name": "Fast of the Apostles (Tsome Hawariat)",
+				"period": "Varies (15–49 days)",
+				"description": "Commemorating the apostles' fasting after receiving the Holy Spirit"
+			},
+			{
+				"name": "Fast of the Assumption (Tsome Filseta)",
+				"period": "16 days in August",
+				"description": "Honouring the Virgin Mary's assumption"
+			},
+			{
+				"name": "Advent Fast (Tsome Gena)",
+				"period": "40 days before Christmas",
+				"description": "Preparation for the birth of Christ (Genna, January 7)"
+			}
+		],
+		"weekly": "Additionally, every Wednesday and Friday are fasting days throughout the year."
+	},
+	"feasts": {
+		"topper": "Major Feast Days",
+		"title": "Church Calendar Highlights",
+		"items": [
+			{ "name": "Genna (Christmas)", "date": "January 7" },
+			{ "name": "Timkat (Epiphany)", "date": "January 19" },
+			{ "name": "Meskel (Finding of the True Cross)", "date": "September 27" },
+			{ "name": "Fasika (Easter)", "date": "Varies" },
+			{ "name": "Buhe (Transfiguration)", "date": "August 19" },
+			{ "name": "Enkutatash (New Year)", "date": "September 11" }
+		],
+		"note": "Dates follow the Ethiopian calendar. Gregorian equivalents shown above are approximate."
+	}
+}

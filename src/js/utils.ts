@@ -1,5 +1,7 @@
-export function formatDate(date: string | number | Date): string {
-  return new Date(date).toLocaleDateString("en-US", {
+import { localeMap, defaultLocale, type Locale } from "@config/siteSettings";
+
+export function formatDate(date: string | number | Date, locale: Locale = defaultLocale): string {
+  return new Date(date).toLocaleDateString(localeMap[locale], {
     timeZone: "UTC",
     month: "short",
     day: "numeric",

@@ -1,8 +1,8 @@
 {
-	"landing": "Blog",
-	"topper": "News And Articles",
-	"title": "Hot off the press!",
-	"featuredPosts": "Featured Posts",
-	"noFeaturedPosts": "No Featured Posts",
-	"readMore": "Read More"
+	"landing": "ዜና እና ማስታወቂያዎች",
+	"topper": "የቅርብ ጊዜ ዝመናዎች",
+	"title": "ዜና እና ማስታወቂያዎች",
+	"featuredPosts": "ተለይተው የቀረቡ",
+	"noFeaturedPosts": "ተለይተው የቀረቡ ጽሑፎች የሉም",
+	"readMore": "ተጨማሪ ያንብቡ"
 }

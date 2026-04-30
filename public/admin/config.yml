@@ -2,7 +2,7 @@
 # REPLACE WITH YOUR OWN CREDENTIALS - See README.md for tutorial
 backend:
     name: git-gateway
-    repo: CodeStitchOfficial/Advanced-Astro-i18n
+    repo: your-github-username/your-repo-name # TODO: replace with your actual GitHub repo
     branch: main
     auth_type: pkce
     base_url: https://auth.decapbridge.com
@@ -30,7 +30,7 @@ auth:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 # Add site links in Decap CMS (optional)
-site_url: https://advanced-astro-kit-i18n.netlify.app
+site_url: https://www.yourwebsite.com # TODO: replace with your production URL
 
 media_folder: src/assets/images/blog # Location where files will be stored in the repo - we store them in src so that Astro can optimize them.
 public_folder: "@assets/images/blog" # Same folder as above, but using a path alias for easier referencing in the markdown files.
