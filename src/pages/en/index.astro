@@ -1,18 +1,16 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import BrowserLanguageRedirect from "@components/LanguageSwitch/BrowserLanguageRedirect.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
-import { useTranslations } from "@js/translationUtils";
+import { useTranslations, getLocalizedRoute } from "@js/translationUtils";
+
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
 ---
 
-<BrowserLanguageRedirect />
-
-<BaseLayout title="Welcome" description="Welcome to our website">
+<BaseLayout title={t("home")} description={t("home")}>
 	<section style="padding: 8rem 1rem; text-align: center;">
-		<h1>Welcome</h1>
+		<h1>{t("home")}</h1>
 		<p>Your new site is ready. Start building!</p>
-		<a href="/contact" style="display:inline-block; margin-top:1rem; padding:0.75rem 1.5rem; background:var(--primary); color:#fff; text-decoration:none; border-radius:4px;">Contact Us</a>
+		<a href={getLocalizedRoute(locale, "/contact")} class="cs-button-solid">{t("contact")}</a>
 	</section>
 </BaseLayout>

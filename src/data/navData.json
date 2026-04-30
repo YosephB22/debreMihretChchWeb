@@ -4,7 +4,7 @@
 		"url": "/",
 		"label": {
 			"en": "Home",
-			"fr": "Accueil"
+			"am": "መነሻ"
 		},
 		"children": []
 	},
@@ -13,7 +13,7 @@
 		"url": "/contact",
 		"label": {
 			"en": "Contact",
-			"fr": "Contact"
+			"am": "አግኙን"
 		},
 		"children": []
 	}

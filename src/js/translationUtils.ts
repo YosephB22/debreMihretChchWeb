@@ -87,8 +87,8 @@ export function getLocalizedRoute(locale: Locale, baseRoute: string): string {
   const trimmed = baseRoute.replace(/^\/|\/$/g, "");
 
   if (trimmed === "") {
-    // Home page
-    return locale === defaultLocale ? "/" : `/${locale}/`;
+    // Home page — always prefix since prefixDefaultLocale is true
+    return `/${locale}/`;
   }
 
   const segments = trimmed.split("/");

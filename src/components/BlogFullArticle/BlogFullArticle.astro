@@ -4,12 +4,14 @@ import { render } from 'astro:content';
 import { Image, Picture } from "astro:assets";
 import profileSvg from "@assets/svgs/profile.svg";
 import { formatDate } from "@js/utils";
+import { getLocaleFromUrl } from "@js/localeUtils";
 import "@styles/markdown.less";
 
 // Receiving incoming props and destructuring them
 const { post } = Astro.props;
 const { title, date, image, author, imageAlt } = post.data;
 const { Content } = await render(post);
+const locale = getLocaleFromUrl(Astro.url);
 ---
 
 <article class="blog-article">
@@ -31,7 +33,7 @@ const { Content } = await render(post);
             <span class="blog-author">{author}</span>
             <span aria-hidden="true" class="blog-dot"></span>
             <!--Blog Date-->
-            <span class="blog-date">{formatDate(date)}</span>
+            <span class="blog-date">{formatDate(date, locale)}</span>
         </div>
     </div>
     <section id="markdown-content">

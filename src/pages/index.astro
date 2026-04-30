@@ -1,0 +1,14 @@
+---
+import { locales, defaultLocale } from "@config/siteSettings";
+---
+
+<script is:inline define:vars={{ locales, defaultLocale }}>
+	var stored = localStorage.getItem("locale-preference");
+	if (stored) {
+		window.location.replace("/" + stored + "/");
+	} else {
+		var lang = (navigator.languages && navigator.languages[0]) || navigator.language;
+		var match = lang && locales.find(function(l) { return lang.startsWith(l); });
+		window.location.replace("/" + (match || defaultLocale) + "/");
+	}
+</script>

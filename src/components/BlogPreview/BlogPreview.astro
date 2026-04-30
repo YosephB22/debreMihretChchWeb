@@ -15,7 +15,7 @@ const { title, date, description, image, imageAlt } = post.data;
 <li class="cs-item">
     <Image src={image} alt={imageAlt} class="cs-picture" />
     <div class="cs-flex">
-        <span class="cs-date">{formatDate(date)}</span>
+        <span class="cs-date">{formatDate(date, locale)}</span>
         <h3 class="cs-h3">{title}</h3>
         <p class="cs-item-text">
             {description}
