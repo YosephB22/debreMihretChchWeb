@@ -1,8 +1,8 @@
 {
-	"landing": "Blog",
-	"topper": "News And Articles",
-	"title": "Hot off the press!",
-	"featuredPosts": "Featured Posts",
-	"noFeaturedPosts": "No Featured Posts",
+	"landing": "News & Announcements",
+	"topper": "Latest Updates",
+	"title": "News & Announcements",
+	"featuredPosts": "Featured",
+	"noFeaturedPosts": "No featured posts",
 	"readMore": "Read More"
 }

@@ -1,0 +1,115 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { useTranslations } from "@js/translationUtils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+type OtherItem = string;
+const otherItems = t<OtherItem[]>("donate:other.items");
+---
+
+<BaseLayout title={t("donate:title")} description={t("donate:description")}>
+
+	<section id="page-header">
+		<div class="cs-container">
+			<span class="cs-topper">{t("donate:topper")}</span>
+			<h1 class="cs-title">{t("donate:heading")}</h1>
+			<p class="cs-text">{t("donate:p")}</p>
+		</div>
+	</section>
+
+	<section id="donate-content">
+		<div class="cs-container">
+			<div class="donate-grid">
+				<div class="donate-card">
+					<h2>{t("donate:bank.title")}</h2>
+					<dl>
+						<dt>{t("donate:bank.name")}</dt>
+						<dd>— <!-- TODO: add account name --></dd>
+						<dt>{t("donate:bank.number")}</dt>
+						<dd>— <!-- TODO: add account number --></dd>
+					</dl>
+					<p class="note">{t("donate:bank.note")}</p>
+				</div>
+
+				<div class="donate-card">
+					<h2>{t("donate:other.title")}</h2>
+					<ul>
+						{otherItems.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+
+			<p class="thanks">{t("donate:thanks")}</p>
+		</div>
+	</section>
+
+</BaseLayout>
+
+<style lang="less">
+	#page-header {
+		padding: clamp(6rem, 12vw, 10rem) 1rem clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		background: var(--dark);
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-topper { color: var(--accent); }
+		.cs-title { color: #fff; }
+		.cs-text { color: rgba(255, 255, 255, 0.8); }
+	}
+
+	#donate-content {
+		padding: var(--sectionPadding);
+		.cs-container { max-width: (900/16rem); margin: 0 auto; }
+
+		.donate-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.donate-card {
+			padding: 2rem;
+			background: var(--medium);
+			border-radius: var(--borderRadius);
+
+			h2 { font-size: 1.25rem; color: var(--headerColor); margin-bottom: 1.5rem; }
+
+			dl {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				gap: 0.5rem 1rem;
+
+				dt { font-weight: 600; color: var(--headerColor); }
+				dd { color: var(--bodyTextColor); margin: 0; }
+			}
+
+			ul {
+				list-style: none;
+				padding: 0;
+				li {
+					padding: 0.5rem 0;
+					border-bottom: 1px solid var(--grey);
+					&:last-child { border-bottom: none; }
+				}
+			}
+
+			.note { margin-top: 1.5rem; font-size: 0.9375rem; font-style: italic; color: var(--bodyTextColor); }
+		}
+
+		.thanks {
+			margin-top: 3rem;
+			text-align: center;
+			font-size: 1.125rem;
+			font-weight: 500;
+			color: var(--primary);
+		}
+	}
+
+	@media only screen and (min-width: 48rem) {
+		#donate-content .donate-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+</style>

@@ -1,0 +1,181 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { useTranslations } from "@js/translationUtils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+type ScheduleItem = { day: string; name: string; time: string; description: string };
+type FastingItem = { name: string; period: string; description: string };
+type FeastItem = { name: string; date: string };
+
+const scheduleItems = t<ScheduleItem[]>("services:schedule.items");
+const fastingItems = t<FastingItem[]>("services:fasting.items");
+const feastItems = t<FeastItem[]>("services:feasts.items");
+---
+
+<BaseLayout title={t("services:title")} description={t("services:description")}>
+
+	<section id="page-header">
+		<div class="cs-container">
+			<span class="cs-topper">{t("services:schedule.topper")}</span>
+			<h1 class="cs-title">{t("services:schedule.title")}</h1>
+		</div>
+	</section>
+
+	<!-- Schedule -->
+	<section id="schedule">
+		<div class="cs-container">
+			<div class="schedule-grid">
+				{scheduleItems.map((item) => (
+					<div class="schedule-card">
+						<h3>{item.day}</h3>
+						<p class="schedule-name">{item.name}</p>
+						<p class="schedule-time">{item.time}</p>
+						<p class="schedule-desc">{item.description}</p>
+					</div>
+				))}
+			</div>
+			<p class="cs-text note">{t("services:schedule.note")}</p>
+		</div>
+	</section>
+
+	<!-- Fasting -->
+	<section id="fasting">
+		<div class="cs-container">
+			<span class="cs-topper">{t("services:fasting.topper")}</span>
+			<h2 class="cs-title">{t("services:fasting.title")}</h2>
+			<p class="cs-text">{t("services:fasting.p")}</p>
+			<div class="fasting-grid">
+				{fastingItems.map((item) => (
+					<div class="fasting-card">
+						<h3>{item.name}</h3>
+						<p class="fasting-period">{item.period}</p>
+						<p class="cs-text">{item.description}</p>
+					</div>
+				))}
+			</div>
+			<p class="cs-text note">{t("services:fasting.weekly")}</p>
+		</div>
+	</section>
+
+	<!-- Feast Days -->
+	<section id="feasts">
+		<div class="cs-container">
+			<span class="cs-topper">{t("services:feasts.topper")}</span>
+			<h2 class="cs-title">{t("services:feasts.title")}</h2>
+			<div class="feast-grid">
+				{feastItems.map((item) => (
+					<div class="feast-card">
+						<span class="feast-name">{item.name}</span>
+						<span class="feast-date">{item.date}</span>
+					</div>
+				))}
+			</div>
+			<p class="cs-text note">{t("services:feasts.note")}</p>
+		</div>
+	</section>
+
+</BaseLayout>
+
+<style lang="less">
+	#page-header {
+		padding: clamp(6rem, 12vw, 10rem) 1rem clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		background: var(--dark);
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-topper { color: var(--accent); }
+		.cs-title { color: #fff; }
+	}
+
+	#schedule {
+		padding: var(--sectionPadding);
+		.cs-container { max-width: (1280/16rem); margin: 0 auto; }
+
+		.schedule-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.schedule-card {
+			padding: 2rem;
+			background: var(--medium);
+			border-radius: var(--borderRadius);
+			border-left: 4px solid var(--primary);
+
+			h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 0.5rem; }
+			.schedule-name { font-weight: 600; color: var(--headerColor); margin-bottom: 0.25rem; }
+			.schedule-time { font-weight: 500; color: var(--accent); margin-bottom: 0.5rem; }
+			.schedule-desc { color: var(--bodyTextColor); font-size: 0.9375rem; }
+		}
+	}
+
+	#fasting {
+		padding: var(--sectionPadding);
+		background: var(--medium);
+		text-align: center;
+
+		.cs-container { max-width: (1280/16rem); margin: 0 auto; }
+
+		.cs-text { max-width: (700/16rem); margin: 0 auto 2rem; }
+
+		.fasting-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+			text-align: left;
+		}
+
+		.fasting-card {
+			padding: 1.5rem;
+			background: #fff;
+			border-radius: var(--borderRadius);
+
+			h3 { font-size: 1.125rem; color: var(--headerColor); margin-bottom: 0.25rem; }
+			.fasting-period { font-weight: 500; color: var(--primary); margin-bottom: 0.5rem; font-size: 0.9375rem; }
+			.cs-text { margin: 0; }
+		}
+	}
+
+	#feasts {
+		padding: var(--sectionPadding);
+		text-align: center;
+
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+
+		.feast-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1rem;
+			margin-top: 2rem;
+			text-align: left;
+		}
+
+		.feast-card {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem 1.5rem;
+			background: var(--medium);
+			border-radius: var(--borderRadiusSm);
+
+			.feast-name { font-weight: 600; color: var(--headerColor); }
+			.feast-date { color: var(--primary); font-weight: 500; white-space: nowrap; }
+		}
+	}
+
+	.note {
+		margin-top: 2rem;
+		font-style: italic;
+		font-size: 0.9375rem;
+		text-align: center;
+	}
+
+	@media only screen and (min-width: 48rem) {
+		#schedule .schedule-grid { grid-template-columns: repeat(3, 1fr); }
+		#fasting .fasting-grid { grid-template-columns: repeat(2, 1fr); }
+		#feasts .feast-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+</style>

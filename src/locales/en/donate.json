@@ -1,0 +1,21 @@
+{
+	"title": "Donate",
+	"description": "Support Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church",
+	"topper": "Support Our Church",
+	"heading": "Give & Tithe",
+	"p": "Your generous contributions help us maintain our church, support community programs, Sunday School, and assist those in need. Every gift makes a difference.",
+	"bank": {
+		"title": "Bank Transfer",
+		"name": "Account Name",
+		"number": "Account Number",
+		"note": "Please use your name as the reference so we can acknowledge your gift."
+	},
+	"other": {
+		"title": "Other Ways to Give",
+		"items": [
+			"In person during Sunday services",
+			"Contact us to arrange regular giving"
+		]
+	},
+	"thanks": "Thank you for your generosity. May God bless you abundantly."
+}

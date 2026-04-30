@@ -1,0 +1,21 @@
+{
+	"title": "About Our Church",
+	"description": "Learn about Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church in Christchurch",
+	"history": {
+		"topper": "Our Story",
+		"title": "About Debre Mihret Kidus Gebriel",
+		"p1": "Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church was established to serve the growing Ethiopian community in Christchurch, New Zealand. Our church is named after the Archangel Gabriel, one of the most revered angels in the Ethiopian Orthodox tradition.",
+		"p2": "We are part of the Ethiopian Orthodox Tewahedo Church, one of the oldest Christian churches in the world, with roots going back to the 4th century. The word 'Tewahedo' means 'unified' — reflecting our belief in the unified nature of Christ."
+	},
+	"faith": {
+		"topper": "Our Faith",
+		"title": "The Ethiopian Orthodox Tewahedo Tradition",
+		"p1": "The Ethiopian Orthodox Tewahedo Church follows the ancient Alexandrian liturgical tradition. Our services are conducted in Ge'ez, the ancient liturgical language, alongside Amharic and English.",
+		"p2": "Our faith is expressed through prayer, fasting, the Holy Liturgy (Kidase), and the celebration of numerous feast days throughout the year. The church calendar follows the Ethiopian calendar, with 13 months of sunshine."
+	},
+	"clergy": {
+		"topper": "Leadership",
+		"title": "Our Clergy",
+		"placeholder": "Information about our priest and deacons will be added here."
+	}
+}

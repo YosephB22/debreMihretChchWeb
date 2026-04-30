@@ -1,71 +1,38 @@
 {
-	"layout": {
-		"title": "Pixel Perfect Websites",
-		"description": "Meta description for the page"
-	},
 	"hero": {
-		"topper": "Advanced Kit",
-		"title": {
-			"1": "Advanced Astro v6",
-			"2": "i18n"
-		},
-		"p1": "This kit is specially designed for customers who want a multi-language site, and is therefore configured with Astro's internationalization tools (i18n) for two languages: English and French. It also includes a Decap CMS integration.",
-		"cta1": "GitHub",
-		"cta2": "CodeStitch"
+		"welcome": "Welcome to",
+		"name": "Debre Mihret Kidus Gebriel",
+		"subtitle": "Ethiopian Orthodox Tewahedo Church — Christchurch, NZ",
+		"cta": "Service Times"
 	},
-	"services": [
-		{
-			"heading": "Service 1",
-			"p": "Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences."
+	"schedule": {
+		"topper": "Join Us",
+		"title": "Weekly Services",
+		"sunday": {
+			"day": "Sunday",
+			"name": "Holy Liturgy (Kidase)",
+			"time": "7:00 AM – 11:00 AM"
 		},
-		{
-			"heading": "Service 2",
-			"p": "Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences."
+		"wednesday": {
+			"day": "Wednesday",
+			"name": "Midweek Prayer",
+			"time": "6:00 PM – 7:30 PM"
 		},
-		{
-			"heading": "Service 3",
-			"p": "Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences."
+		"saturday": {
+			"day": "Saturday",
+			"name": "Kidase & Sunday School",
+			"time": "8:00 AM – 12:00 PM"
 		}
-	],
+	},
 	"about": {
-		"topper": "About Us",
-		"title": "About Company Title",
-		"p1": "Our company was created In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p2": "We believe that In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p3": "It's important In consequat tincidunt turpis sit amet imperdiet.",
-		"rank": "CEO-Founder",
-		"cta": "More about us"
+		"topper": "Our Community",
+		"title": "A Home Away From Home",
+		"p": "Debre Mihret Kidus Gebriel serves the Ethiopian Orthodox Tewahedo community in Christchurch and the wider Canterbury region. We gather for worship, fellowship, and to preserve our faith and heritage in Aotearoa New Zealand.",
+		"cta": "Learn more about us"
 	},
-	"extra": {
-		"topper": "SEO Ranking",
-		"title": "Talk about a main service keyword",
-		"p1": "Our main service In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.",
-		"p2": "Research shows that In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per."
-	},
-	"portfolio": {
-		"topper": "Our Portfolio",
-		"title": "Et orci volutpat, back up generator installations",
-		"cta": "View Our Products"
-	},
-	"testimonials": {
-		"topper": "Testimonials",
-		"title": "Words From Our Customers",
-		"items": [
-			{
-				"quote": "I was amazed by the quality of work. The team was professional and exceeded my expectations. Highly recommend!",
-				"name": "John Smith",
-				"role": "Homeowner"
-			},
-			{
-				"quote": "Outstanding service from start to finish. They communicated clearly and delivered exactly what was promised.",
-				"name": "Sarah Johnson",
-				"role": "Business Owner"
-			},
-			{
-				"quote": "The level of craftsmanship was impressive. They treated my home like it was their own.",
-				"name": "Michael Brown",
-				"role": "Property Manager"
-			}
-		]
+	"cta": {
+		"title": "Join Our Community",
+		"p": "Whether you are new to Christchurch or looking for a spiritual home, you are welcome here. Come worship with us.",
+		"button": "Get in touch"
 	}
 }
