@@ -9,10 +9,13 @@ const t = useTranslations(locale);
 type ScheduleItem = { day: string; name: string; time: string; description: string };
 type FastingItem = { name: string; period: string; description: string };
 type FeastItem = { name: string; date: string };
+type StGabrielDate = { name: string; description: string };
 
 const scheduleItems = t<ScheduleItem[]>("services:schedule.items");
 const fastingItems = t<FastingItem[]>("services:fasting.items");
-const feastItems = t<FeastItem[]>("services:feasts.items");
+const stGabrielDates = t<StGabrielDate[]>("services:feasts.stGabriel.dates");
+const otherFeasts = t<FeastItem[]>("services:feasts.other");
+const sundaySchoolItems = t<string[]>("services:sundaySchool.items");
 ---
 
 <BaseLayout title={t("services:title")} description={t("services:description")}>
@@ -60,13 +63,33 @@ const feastItems = t<FeastItem[]>("services:feasts.items");
 		</div>
 	</section>
 
-	<!-- Feast Days -->
+	<!-- Feast of St. Gabriel & Calendar -->
 	<section id="feasts">
 		<div class="cs-container">
 			<span class="cs-topper">{t("services:feasts.topper")}</span>
 			<h2 class="cs-title">{t("services:feasts.title")}</h2>
+
+			<!-- St. Gabriel featured -->
+			<div class="st-gabriel">
+				<h3>{t("services:feasts.stGabriel.title")}</h3>
+				<p class="cs-text">{t("services:feasts.stGabriel.p1")}</p>
+				<p class="cs-text">{t("services:feasts.stGabriel.p2")}</p>
+				<p class="cs-text">{t("services:feasts.stGabriel.p3")}</p>
+				<div class="gabriel-dates">
+					{stGabrielDates.map((d) => (
+						<div class="gabriel-date-card">
+							<span class="gabriel-date-name">{d.name}</span>
+							<span class="gabriel-date-desc">{d.description}</span>
+						</div>
+					))}
+				</div>
+				<p class="cs-text monthly">{t("services:feasts.stGabriel.monthly")}</p>
+			</div>
+
+			<!-- Other feasts -->
+			<h3 class="other-feasts-title">{t("services:feasts.topper")}</h3>
 			<div class="feast-grid">
-				{feastItems.map((item) => (
+				{otherFeasts.map((item) => (
 					<div class="feast-card">
 						<span class="feast-name">{item.name}</span>
 						<span class="feast-date">{item.date}</span>
@@ -74,6 +97,20 @@ const feastItems = t<FeastItem[]>("services:feasts.items");
 				))}
 			</div>
 			<p class="cs-text note">{t("services:feasts.note")}</p>
+		</div>
+	</section>
+
+	<!-- Sunday School -->
+	<section id="sunday-school">
+		<div class="cs-container">
+			<span class="cs-topper">{t("services:sundaySchool.topper")}</span>
+			<h2 class="cs-title">{t("services:sundaySchool.title")}</h2>
+			<p class="cs-text">{t("services:sundaySchool.p")}</p>
+			<ul class="program-list">
+				{sundaySchoolItems.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
 		</div>
 	</section>
 
@@ -145,11 +182,64 @@ const feastItems = t<FeastItem[]>("services:feasts.items");
 
 		.cs-container { max-width: (800/16rem); margin: 0 auto; }
 
+		.st-gabriel {
+			text-align: left;
+			margin: 2rem 0 3rem;
+			padding: 2rem;
+			background: var(--medium);
+			border-radius: var(--borderRadius);
+			border-left: 4px solid var(--accent);
+
+			h3 {
+				font-size: 1.25rem;
+				color: var(--accent);
+				margin-bottom: 1rem;
+			}
+
+			.cs-text { margin-bottom: 1rem; }
+
+			.gabriel-dates {
+				display: grid;
+				gap: 1rem;
+				margin: 1.5rem 0;
+			}
+
+			.gabriel-date-card {
+				padding: 1rem 1.25rem;
+				background: #fff;
+				border-radius: var(--borderRadiusSm);
+				display: flex;
+				flex-direction: column;
+				gap: 0.25rem;
+			}
+
+			.gabriel-date-name {
+				font-weight: 700;
+				color: var(--primary);
+			}
+
+			.gabriel-date-desc {
+				font-size: 0.9375rem;
+				color: var(--bodyTextColor);
+			}
+
+			.monthly {
+				font-style: italic;
+				font-weight: 500;
+				margin-bottom: 0;
+			}
+		}
+
+		.other-feasts-title {
+			font-size: 1.125rem;
+			color: var(--headerColor);
+			margin-bottom: 1rem;
+		}
+
 		.feast-grid {
 			display: grid;
 			grid-template-columns: 1fr;
 			gap: 1rem;
-			margin-top: 2rem;
 			text-align: left;
 		}
 
@@ -162,7 +252,40 @@ const feastItems = t<FeastItem[]>("services:feasts.items");
 			border-radius: var(--borderRadiusSm);
 
 			.feast-name { font-weight: 600; color: var(--headerColor); }
-			.feast-date { color: var(--primary); font-weight: 500; white-space: nowrap; }
+			.feast-date { color: var(--primary); font-weight: 500; white-space: nowrap; font-size: 0.875rem; }
+		}
+	}
+
+	#sunday-school {
+		padding: var(--sectionPadding);
+		background: var(--medium);
+		text-align: center;
+
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-text { max-width: (700/16rem); margin: 0 auto 2rem; }
+
+		.program-list {
+			list-style: none;
+			padding: 0;
+			text-align: left;
+			max-width: (600/16rem);
+			margin: 0 auto;
+
+			li {
+				padding: 0.75rem 0;
+				padding-left: 1.5rem;
+				border-bottom: 1px solid var(--grey);
+				position: relative;
+
+				&::before {
+					content: "✦";
+					color: var(--primary);
+					position: absolute;
+					left: 0;
+				}
+
+				&:last-child { border-bottom: none; }
+			}
 		}
 	}
 
@@ -177,5 +300,6 @@ const feastItems = t<FeastItem[]>("services:feasts.items");
 		#schedule .schedule-grid { grid-template-columns: repeat(3, 1fr); }
 		#fasting .fasting-grid { grid-template-columns: repeat(2, 1fr); }
 		#feasts .feast-grid { grid-template-columns: repeat(2, 1fr); }
+		#feasts .gabriel-dates { grid-template-columns: repeat(2, 1fr); }
 	}
 </style>

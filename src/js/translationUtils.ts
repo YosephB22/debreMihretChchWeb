@@ -83,25 +83,28 @@ export function useTranslations(locale: Locale) {
  * For the default locale, no prefix is added.
  */
 export function getLocalizedRoute(locale: Locale, baseRoute: string): string {
+  // Extract hash fragment if present
+  const hashIndex = baseRoute.indexOf("#");
+  const hash = hashIndex !== -1 ? baseRoute.slice(hashIndex) : "";
+  const routeWithoutHash = hashIndex !== -1 ? baseRoute.slice(0, hashIndex) : baseRoute;
+
   // Normalize: remove leading/trailing slashes, split into segments
-  const trimmed = baseRoute.replace(/^\/|\/$/g, "");
+  const trimmed = routeWithoutHash.replace(/^\/|\/$/g, "");
 
   if (trimmed === "") {
-    // Home page — always prefix since prefixDefaultLocale is true
-    return `/${locale}/`;
+    return `/${locale}/` + hash;
   }
 
   const segments = trimmed.split("/");
   const localeRoutes = routeTranslations[locale] || {};
 
-  // Translate each segment if a translation exists
   const translatedSegments = segments.map((seg) => {
     return localeRoutes[seg] || seg;
   });
 
   const path = translatedSegments.join("/");
 
-  return `/${locale}/${path}/`;
+  return `/${locale}/${path}/` + hash;
 }
 
 // ── Dynamic route translations (blog slug mapping) ──────────────────
