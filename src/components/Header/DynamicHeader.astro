@@ -3,7 +3,7 @@ import navData from "@data/navData.json";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import { getLocaleFromUrl } from "@js/localeUtils";
-import { getLocalizedRoute } from "@js/translationUtils";
+import { getLocalizedRoute, useTranslations } from "@js/translationUtils";
 import type { Locale } from "@config/siteSettings";
 import Settings from "@components/Settings/Settings.astro";
 import logoBlack from "@assets/svgs/logo-black.svg";
@@ -16,6 +16,7 @@ type NavEntry = {
 };
 
 const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
 const entries = navData as NavEntry[];
 ---
 
@@ -81,6 +82,8 @@ const entries = navData as NavEntry[];
 						))
 					}
 				</ul>
+				<!-- Donate button (mobile) -->
+				<a href={getLocalizedRoute(locale, "/donate")} class="cs-donate-btn cs-shown">{t("donate")}</a>
 				<!-- shown on mobile menu by default  -->
 				<div class="cs-shown cs-settings">
 					<Settings />
@@ -91,6 +94,8 @@ const entries = navData as NavEntry[];
 		<div class="cs-hidden cs-settings">
 			<Settings />
 		</div>
+		<!-- Donate button (desktop) — far right -->
+		<a href={getLocalizedRoute(locale, "/donate")} class="cs-donate-btn cs-hidden">{t("donate")}</a>
 	</div>
 </header>
 
@@ -778,6 +783,46 @@ const entries = navData as NavEntry[];
 			.cs-settings.cs-shown {
 				display: none;
 			}
+		}
+	}
+
+	/* Donate CTA button */
+	.cs-donate-btn {
+		font-size: (14/16rem);
+		font-weight: 600;
+		line-height: 1;
+		text-decoration: none;
+		padding: (10/16rem) (20/16rem);
+		color: #fff;
+		background-color: var(--accent);
+		border-radius: var(--borderRadiusSm);
+		white-space: nowrap;
+		transition: background-color 0.2s ease;
+
+		&:hover {
+			background-color: var(--secondaryLight);
+		}
+	}
+
+	@media only screen and (max-width: 63.9375rem) {
+		.cs-donate-btn.cs-hidden {
+			display: none;
+		}
+
+		.cs-donate-btn.cs-shown {
+			display: inline-block;
+			text-align: center;
+			margin-top: 0.5rem;
+		}
+	}
+
+	@media only screen and (min-width: 64rem) {
+		.cs-donate-btn.cs-shown {
+			display: none;
+		}
+
+		.cs-donate-btn.cs-hidden {
+			display: inline-block;
 		}
 	}
 

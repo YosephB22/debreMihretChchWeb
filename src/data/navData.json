@@ -24,7 +24,44 @@
 			"en": "Services",
 			"am": "አገልግሎት"
 		},
-		"children": []
+		"children": [
+			{
+				"key": "schedule",
+				"url": "/services#schedule",
+				"label": {
+					"en": "Service Times",
+					"am": "የአገልግሎት ሰዓት"
+				},
+				"children": []
+			},
+			{
+				"key": "fasting",
+				"url": "/services#fasting",
+				"label": {
+					"en": "Fasting Seasons",
+					"am": "የጾም ወቅቶች"
+				},
+				"children": []
+			},
+			{
+				"key": "feasts",
+				"url": "/services#feasts",
+				"label": {
+					"en": "Feast Days & Calendar",
+					"am": "በዓላት እና ቀን መቁጠሪያ"
+				},
+				"children": []
+			},
+			{
+				"key": "sunday-school",
+				"url": "/services#sunday-school",
+				"label": {
+					"en": "Sunday School",
+					"am": "የሰንበት ትምህርት ቤት"
+				},
+				"children": []
+			}
+		]
 	},
 	{
 		"key": "blog",
@@ -41,15 +78,6 @@
 		"label": {
 			"en": "Gallery",
 			"am": "ፎቶዎች"
-		},
-		"children": []
-	},
-	{
-		"key": "donate",
-		"url": "/donate",
-		"label": {
-			"en": "Donate",
-			"am": "ልገሳ"
 		},
 		"children": []
 	},

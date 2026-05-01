@@ -55,16 +55,44 @@
 		"weekly": "Additionally, every Wednesday and Friday are fasting days throughout the year."
 	},
 	"feasts": {
-		"topper": "Major Feast Days",
-		"title": "Church Calendar Highlights",
-		"items": [
-			{ "name": "Genna (Christmas)", "date": "January 7" },
-			{ "name": "Timkat (Epiphany)", "date": "January 19" },
-			{ "name": "Meskel (Finding of the True Cross)", "date": "September 27" },
+		"topper": "Feast Days",
+		"title": "Feast of Saint Gabriel & Church Calendar",
+		"stGabriel": {
+			"title": "Feast of Archangel Saint Gabriel",
+			"p1": "As a church named after the Archangel Gabriel, the Feast of Saint Gabriel holds special significance for our community. We celebrate this feast with particular devotion, gathering for extended services, prayer, and fellowship.",
+			"p2": "The Ark of Archangel Saint Gabriel is found at the renowned Kulubi Saint Gabriel Church, located 462 kilometres from Addis Ababa near Dire Dawa. The church was built by Prince Ras Mekonen, and the current building was constructed by Emperor Haile Selassie to accommodate the growing number of faithful who travel from across Ethiopia to celebrate the feast.",
+			"p3": "Saint Gabriel is remembered for his miraculous works, including the saving of the three children — Anania, Azaria, and Misael — from the burning fire, as told in the Book of Daniel, Chapter 3.",
+			"dates": [
+				{
+					"name": "Hamle 19 (July 26)",
+					"description": "Commemorates the day the Ark of Saint Gabriel entered the temple at Kulubi"
+				},
+				{
+					"name": "Tahsas 19 (December 28)",
+					"description": "Celebrates the consecration of Kulubi Saint Gabriel Church and the miraculous saving of the three children from the fire"
+				}
+			],
+			"monthly": "The 19th of every Ethiopian month is also observed as a day of Saint Gabriel."
+		},
+		"other": [
+			{ "name": "Genna (Christmas)", "date": "Tahsas 29 / January 7" },
+			{ "name": "Timkat (Epiphany)", "date": "Tir 11 / January 19" },
+			{ "name": "Meskel (Finding of the True Cross)", "date": "Meskerem 17 / September 27" },
 			{ "name": "Fasika (Easter)", "date": "Varies" },
-			{ "name": "Buhe (Transfiguration)", "date": "August 19" },
-			{ "name": "Enkutatash (New Year)", "date": "September 11" }
+			{ "name": "Buhe (Transfiguration)", "date": "Nahase 13 / August 19" },
+			{ "name": "Enkutatash (New Year)", "date": "Meskerem 1 / September 11" }
 		],
-		"note": "Dates follow the Ethiopian calendar. Gregorian equivalents shown above are approximate."
+		"note": "Ethiopian calendar dates shown first, followed by approximate Gregorian equivalents."
+	},
+	"sundaySchool": {
+		"topper": "Youth & Education",
+		"title": "Sunday School",
+		"p": "Our Sunday School (Yesunday Timhirt Bet) provides children and young people with religious education, Amharic language classes, and Ge'ez hymn learning. Classes run alongside Saturday morning services.",
+		"items": [
+			"Bible stories and Orthodox Christian teachings",
+			"Amharic reading and writing",
+			"Ge'ez hymns and church music (Mezmur)",
+			"Ethiopian culture and heritage"
+		]
 	}
 }
