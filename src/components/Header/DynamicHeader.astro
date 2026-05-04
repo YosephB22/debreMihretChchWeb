@@ -82,12 +82,12 @@ const entries = navData as NavEntry[];
 						))
 					}
 				</ul>
-				<!-- Donate button (mobile) -->
-				<a href={getLocalizedRoute(locale, "/donate")} class="cs-donate-btn cs-shown">{t("donate")}</a>
 				<!-- shown on mobile menu by default  -->
 				<div class="cs-shown cs-settings">
 					<Settings />
 				</div>
+				<!-- Donate button (mobile) — below language toggle -->
+				<a href={getLocalizedRoute(locale, "/donate")} class="cs-donate-btn cs-shown">{t("donate")}</a>
 			</div>
 		</nav>
 		<!-- shown on desktop menu by default  -->
@@ -239,7 +239,7 @@ const entries = navData as NavEntry[];
 			.cs-line {
 				width: 100%;
 				height: 2px;
-				background-color: #1a1a1a;
+				background-color: var(--headerColor);
 				border-radius: 2px;
 				position: absolute;
 				left: 50%;
@@ -813,6 +813,8 @@ const entries = navData as NavEntry[];
 			display: inline-block;
 			text-align: center;
 			margin-top: 0.5rem;
+			justify-self: center;
+			width: auto;
 		}
 	}
 
