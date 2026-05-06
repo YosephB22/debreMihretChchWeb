@@ -68,7 +68,7 @@ const t = useTranslations(locale);
 
 <style lang="less">
 	#hero {
-		padding: clamp(6rem, 12vw, 10rem) 1rem clamp(3.75rem, 7.82vw, 6.25rem);
+		padding: clamp(5rem, 10vw, 9rem) 1.25rem clamp(3rem, 6vw, 5rem);
 		text-align: center;
 		background: var(--dark);
 		color: var(--bodyTextColorWhite);
@@ -96,7 +96,7 @@ const t = useTranslations(locale);
 
 		.cs-button-solid {
 			background-color: var(--accent);
-			color: var(--dark);
+			color: #fff;
 
 			&:hover {
 				background-color: var(--secondaryLight);
@@ -147,7 +147,6 @@ const t = useTranslations(locale);
 	#about-preview {
 		padding: var(--sectionPadding);
 		text-align: center;
-		background: var(--medium);
 
 		.cs-container {
 			max-width: (800/16rem);
@@ -162,8 +161,7 @@ const t = useTranslations(locale);
 	#cta {
 		padding: var(--sectionPadding);
 		text-align: center;
-		background: var(--primary);
-		color: #fff;
+		background: var(--medium);
 
 		.cs-container {
 			max-width: (800/16rem);
@@ -171,20 +169,20 @@ const t = useTranslations(locale);
 		}
 
 		.cs-title {
-			color: #fff;
+			color: var(--headerColor);
 		}
 
 		.cs-text {
-			color: rgba(255, 255, 255, 0.9);
+			color: var(--bodyTextColor);
 			margin-bottom: 2rem;
 		}
 
 		.cs-button-solid {
-			background-color: #fff;
-			color: var(--primary);
+			background-color: var(--primary);
+			color: #fff;
 
 			&:hover {
-				background-color: var(--light);
+				background-color: var(--primaryDark);
 			}
 		}
 	}
