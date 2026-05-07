@@ -2,26 +2,20 @@
 	"title": "Services & Schedule",
 	"description": "Service times, fasting calendar, and feast days at St. Gebriel EOTC Christchurch",
 	"schedule": {
-		"topper": "Weekly Schedule",
+		"topper": "Weekly Services",
 		"title": "Service Times",
 		"items": [
 			{
 				"day": "Sunday",
-				"name": "Holy Liturgy (Kidase)",
-				"time": "7:00 AM – 11:00 AM",
-				"description": "The main weekly service including the Holy Communion"
+				"name": "Holy Liturgy (Kidase / ቅዳሴ)",
+				"time": "6:00 AM – 10:00 AM",
+				"description": "The main weekly Eucharistic service conducted in Ge'ez and Amharic, including Holy Communion"
 			},
 			{
-				"day": "Wednesday",
-				"name": "Midweek Prayer",
-				"time": "6:00 PM – 7:30 PM",
-				"description": "Evening prayer and spiritual teaching"
-			},
-			{
-				"day": "Saturday",
-				"name": "Kidase & Sunday School",
-				"time": "8:00 AM – 12:00 PM",
-				"description": "Morning liturgy followed by children's Sunday School and Amharic classes"
+				"day": "Sunday (19th of each month)",
+				"name": "St. Gabriel Monthly Commemoration",
+				"time": "4:45 PM – 7:00 PM",
+				"description": "Prayer, hymns, drama, poetry, and sermon commemorating Archangel Saint Gabriel — organised by Finote Hiwot Sunday School"
 			}
 		],
 		"note": "Service times may change during fasting seasons and major feast days. Please check our news page for updates."
@@ -72,7 +66,20 @@
 					"description": "Celebrates the consecration of Kulubi Saint Gabriel Church and the miraculous saving of the three children from the fire"
 				}
 			],
-			"monthly": "The 19th of every Ethiopian month is also observed as a day of Saint Gabriel."
+			"feastProgram": {
+				"title": "Feast Day Program",
+				"p": "On the major feast days of Saint Gabriel (Hamle 19 and Tahsas 19), we celebrate with a full day of worship and fellowship:",
+				"items": [
+					"Mahlet (ማኅሌት) — Night vigil hymns and praise",
+					"Kidan (ኪዳን) — Covenant prayer",
+					"Udet (ኡደት) — Procession",
+					"Kidase (ቅዳሴ) — Holy Liturgy",
+					"Preaching and teaching",
+					"Singing and spiritual songs",
+					"Lunch program and fellowship"
+				]
+			},
+			"monthly": "The 19th of every Ethiopian month is observed as St. Gabriel's day. We gather on Sunday from 4:45 PM to 7:00 PM for prayer, hymns, drama, poetry, and sermon."
 		},
 		"other": [
 			{ "name": "Genna (Christmas)", "date": "Tahsas 29 / January 7" },
@@ -86,13 +93,30 @@
 	},
 	"sundaySchool": {
 		"topper": "Youth & Education",
-		"title": "Sunday School",
-		"p": "Our Sunday School (Yesunday Timhirt Bet) provides children and young people with religious education, Amharic language classes, and Ge'ez hymn learning. Classes run alongside Saturday morning services.",
-		"items": [
-			"Bible stories and Orthodox Christian teachings",
-			"Amharic reading and writing",
-			"Ge'ez hymns and church music (Mezmur)",
-			"Ethiopian culture and heritage"
+		"title": "Finote Hiwot Sunday School",
+		"p": "Finote Hiwot (ፍኖተ ሕይወት — Path of Life) Sunday School offers structured programs for all age groups — nurturing faith, teaching Amharic, and building community among our young people. The Sunday School also organises the monthly St. Gabriel commemoration program.",
+		"programs": [
+			{
+				"name": "Youth Teaching",
+				"age": "All youth",
+				"days": "Monday, Wednesday & Friday",
+				"time": "6:00 PM – 8:00 PM",
+				"description": "Spiritual teaching and fellowship for young people"
+			},
+			{
+				"name": "Kids Sunday School",
+				"age": "Ages 4–15",
+				"days": "Sunday",
+				"time": "12:00 PM – 3:30 PM",
+				"description": "Bible stories, Amharic reading and writing, Ge'ez hymns, and Ethiopian culture"
+			},
+			{
+				"name": "Senior Sunday School",
+				"age": "Ages 16+",
+				"days": "Saturday",
+				"time": "5:00 PM – 7:00 PM",
+				"description": "In-depth Orthodox Christian teachings and discussion"
+			}
 		]
 	}
 }
