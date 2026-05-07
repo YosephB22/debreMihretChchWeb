@@ -14,8 +14,9 @@ type StGabrielDate = { name: string; description: string };
 const scheduleItems = t<ScheduleItem[]>("services:schedule.items");
 const fastingItems = t<FastingItem[]>("services:fasting.items");
 const stGabrielDates = t<StGabrielDate[]>("services:feasts.stGabriel.dates");
+const feastProgramItems = t<string[]>("services:feasts.stGabriel.feastProgram.items");
 const otherFeasts = t<FeastItem[]>("services:feasts.other");
-const sundaySchoolItems = t<string[]>("services:sundaySchool.items");
+const sundaySchoolItems = t<{ name: string; age: string; days: string; time: string; description: string }[]>("services:sundaySchool.programs");
 ---
 
 <BaseLayout title={t("services:title")} description={t("services:description")}>
@@ -83,6 +84,15 @@ const sundaySchoolItems = t<string[]>("services:sundaySchool.items");
 						</div>
 					))}
 				</div>
+				<div class="feast-program">
+					<h4>{t("services:feasts.stGabriel.feastProgram.title")}</h4>
+					<p class="cs-text">{t("services:feasts.stGabriel.feastProgram.p")}</p>
+					<ul>
+						{feastProgramItems.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</div>
 				<p class="cs-text monthly">{t("services:feasts.stGabriel.monthly")}</p>
 			</div>
 
@@ -106,11 +116,17 @@ const sundaySchoolItems = t<string[]>("services:sundaySchool.items");
 			<span class="cs-topper">{t("services:sundaySchool.topper")}</span>
 			<h2 class="cs-title">{t("services:sundaySchool.title")}</h2>
 			<p class="cs-text">{t("services:sundaySchool.p")}</p>
-			<ul class="program-list">
-				{sundaySchoolItems.map((item) => (
-					<li>{item}</li>
+			<div class="program-grid">
+				{sundaySchoolItems.map((program) => (
+					<div class="program-card">
+						<h3>{program.name}</h3>
+						<span class="program-age">{program.age}</span>
+						<p class="program-days">{program.days}</p>
+						<p class="program-time">{program.time}</p>
+						<p class="program-desc">{program.description}</p>
+					</div>
 				))}
-			</ul>
+			</div>
 		</div>
 	</section>
 
@@ -228,6 +244,33 @@ const sundaySchoolItems = t<string[]>("services:sundaySchool.items");
 				font-weight: 500;
 				margin-bottom: 0;
 			}
+
+			.feast-program {
+				margin-top: 1.5rem;
+				padding-top: 1.5rem;
+				border-top: 1px solid var(--grey);
+
+				h4 { font-size: 1rem; color: var(--headerColor); margin-bottom: 0.5rem; }
+				.cs-text { margin-bottom: 0.75rem; }
+
+				ul {
+					list-style: none;
+					padding: 0;
+					li {
+						padding: 0.4rem 0 0.4rem 1.25rem;
+						position: relative;
+						color: var(--bodyTextColor);
+						font-size: 0.9375rem;
+						&::before {
+							content: "•";
+							color: var(--accent);
+							font-weight: bold;
+							position: absolute;
+							left: 0;
+						}
+					}
+				}
+			}
 		}
 
 		.other-feasts-title {
@@ -261,31 +304,27 @@ const sundaySchoolItems = t<string[]>("services:sundaySchool.items");
 		background: var(--medium);
 		text-align: center;
 
-		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-container { max-width: (1280/16rem); margin: 0 auto; }
 		.cs-text { max-width: (700/16rem); margin: 0 auto 2rem; }
 
-		.program-list {
-			list-style: none;
-			padding: 0;
+		.program-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
 			text-align: left;
-			max-width: (600/16rem);
-			margin: 0 auto;
+		}
 
-			li {
-				padding: 0.75rem 0;
-				padding-left: 1.5rem;
-				border-bottom: 1px solid var(--grey);
-				position: relative;
+		.program-card {
+			padding: 1.5rem;
+			background: #fff;
+			border-radius: var(--borderRadius);
+			border-left: 4px solid var(--primary);
 
-				&::before {
-					content: "✦";
-					color: var(--primary);
-					position: absolute;
-					left: 0;
-				}
-
-				&:last-child { border-bottom: none; }
-			}
+			h3 { font-size: 1.125rem; color: var(--headerColor); margin-bottom: 0.25rem; }
+			.program-age { font-size: 0.875rem; font-weight: 500; color: var(--primary); }
+			.program-days { font-weight: 600; color: var(--headerColor); margin-top: 0.75rem; margin-bottom: 0.25rem; }
+			.program-time { font-weight: 500; color: var(--accent); margin-bottom: 0.5rem; }
+			.program-desc { font-size: 0.9375rem; color: var(--bodyTextColor); }
 		}
 	}
 
@@ -303,5 +342,6 @@ const sundaySchoolItems = t<string[]>("services:sundaySchool.items");
 		#feasts .feast-card { flex-direction: row; justify-content: space-between; align-items: center; }
 		#feasts .gabriel-dates { grid-template-columns: repeat(2, 1fr); }
 		#feasts .st-gabriel { padding: 2rem; }
+		#sunday-school .program-grid { grid-template-columns: repeat(3, 1fr); }
 	}
 </style>
