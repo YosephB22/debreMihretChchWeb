@@ -15,14 +15,33 @@
 			"en": "About",
 			"am": "ስለ እኛ"
 		},
-		"children": []
+		"children": [
+			{
+				"key": "beliefs",
+				"url": "/beliefs",
+				"label": {
+					"en": "Beliefs",
+					"am": "እምነት"
+				},
+				"children": []
+			},
+			{
+				"key": "visit",
+				"url": "/visit",
+				"label": {
+					"en": "Plan Your Visit",
+					"am": "ጉብኝት ያቅዱ"
+				},
+				"children": []
+			}
+		]
 	},
 	{
 		"key": "services",
 		"url": "/services",
 		"label": {
-			"en": "Services",
-			"am": "አገልግሎት"
+			"en": "Worship",
+			"am": "አምልኮ"
 		},
 		"children": [
 			{
@@ -51,26 +70,8 @@
 					"am": "በዓላት እና ቀን መቁጠሪያ"
 				},
 				"children": []
-			},
-			{
-				"key": "sunday-school",
-				"url": "/services#sunday-school",
-				"label": {
-					"en": "Finote Hiwot Sunday School",
-					"am": "ፍኖተ ሕይወት ሰንበት ት/ቤት"
-				},
-				"children": []
 			}
 		]
-	},
-	{
-		"key": "blog",
-		"url": "/blog",
-		"label": {
-			"en": "News",
-			"am": "ዜና"
-		},
-		"children": []
 	},
 	{
 		"key": "gallery",
@@ -80,6 +81,34 @@
 			"am": "ፎቶዎች"
 		},
 		"children": []
+	},
+	{
+		"key": "community",
+		"url": "/mahber",
+		"label": {
+			"en": "Community",
+			"am": "ማኅበረሰብ"
+		},
+		"children": [
+			{
+				"key": "mahber",
+				"url": "/mahber",
+				"label": {
+					"en": "Fellowships",
+					"am": "ማኅበራት"
+				},
+				"children": []
+			},
+			{
+				"key": "blog",
+				"url": "/blog",
+				"label": {
+					"en": "News",
+					"am": "ዜና"
+				},
+				"children": []
+			}
+		]
 	},
 	{
 		"key": "contact",

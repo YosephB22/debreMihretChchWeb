@@ -1,6 +1,6 @@
 {
-	"title": "Services & Schedule",
-	"description": "Service times, fasting calendar, and feast days at St. Gebriel EOTC Christchurch",
+	"title": "Worship",
+	"description": "Worship times, fasting calendar, and feast days at St. Gebriel EOTC Christchurch",
 	"schedule": {
 		"topper": "Weekly Services",
 		"title": "Service Times",
@@ -94,29 +94,8 @@
 	"sundaySchool": {
 		"topper": "Youth & Education",
 		"title": "Finote Hiwot Sunday School",
-		"p": "Finote Hiwot (ፍኖተ ሕይወት — Path of Life) Sunday School offers structured programs for all age groups — nurturing faith, teaching Amharic, and building community among our young people. The Sunday School also organises the monthly St. Gabriel commemoration program.",
-		"programs": [
-			{
-				"name": "Youth Teaching",
-				"age": "All youth",
-				"days": "Monday, Wednesday & Friday",
-				"time": "6:00 PM – 8:00 PM",
-				"description": "Spiritual teaching and fellowship for young people"
-			},
-			{
-				"name": "Kids Sunday School",
-				"age": "Ages 4–15",
-				"days": "Sunday",
-				"time": "12:00 PM – 3:30 PM",
-				"description": "Bible stories, Amharic reading and writing, Ge'ez hymns, and Ethiopian culture"
-			},
-			{
-				"name": "Senior Sunday School",
-				"age": "Ages 16+",
-				"days": "Saturday",
-				"time": "5:00 PM – 7:00 PM",
-				"description": "In-depth Orthodox Christian teachings and discussion"
-			}
-		]
+		"p": "Finote Hiwot (ፍኖተ ሕይወት — Path of Life) Sunday School offers structured programs for all age groups — nurturing faith, teaching Amharic, and building community among our young people.",
+		"linkText": "View all programs and get involved →",
+		"linkUrl": "/en/mahber/"
 	}
 }

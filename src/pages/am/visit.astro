@@ -1,0 +1,83 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { useTranslations } from "@js/translationUtils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+---
+
+<BaseLayout title={t("visit:title")} description={t("visit:description")}>
+
+	<section id="page-header">
+		<div class="cs-container">
+			<span class="cs-topper">{t("visit:topper")}</span>
+			<h1 class="cs-title">{t("visit:heading")}</h1>
+			<p class="cs-text">{t("visit:intro")}</p>
+		</div>
+	</section>
+
+	<section id="visit-content">
+		<div class="cs-container">
+			<div class="visit-grid">
+				<div class="visit-card">
+					<h2>{t("visit:parking.title")}</h2>
+					<p class="cs-text">{t("visit:parking.body")}</p>
+				</div>
+
+				<div class="visit-card">
+					<h2>{t("visit:dressCode.title")}</h2>
+					<p class="cs-text">{t("visit:dressCode.body")}</p>
+				</div>
+
+				<div class="visit-card">
+					<h2>{t("visit:children.title")}</h2>
+					<p class="cs-text">{t("visit:children.body")}</p>
+				</div>
+
+				<div class="visit-card">
+					<h2>{t("visit:whatToExpect.title")}</h2>
+					<p class="cs-text">{t("visit:whatToExpect.body")}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</BaseLayout>
+
+<style lang="less">
+	#page-header {
+		padding: clamp(5rem, 10vw, 8rem) 1.25rem clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		background: var(--dark);
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-topper { color: var(--accent); }
+		.cs-title { color: #fff; }
+		.cs-text { color: rgba(255, 255, 255, 0.8); }
+	}
+
+	#visit-content {
+		padding: var(--sectionPadding);
+		.cs-container { max-width: (1280/16rem); margin: 0 auto; }
+
+		.visit-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.visit-card {
+			padding: 2rem;
+			background: var(--medium);
+			border-radius: var(--borderRadius);
+			border-left: 4px solid var(--primary);
+
+			h2 { font-size: 1.25rem; color: var(--primary); margin-bottom: 0.75rem; }
+			.cs-text { color: var(--bodyTextColor); font-size: 0.9375rem; }
+		}
+	}
+
+	@media only screen and (min-width: 48rem) {
+		#visit-content .visit-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+</style>

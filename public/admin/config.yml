@@ -107,3 +107,30 @@ collections:
                 hint: "URL-friendly identifier. Used to 'link' translated blog posts for SEO purposes",
             }
           - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+    - name: "mahber"
+      label: "Mahber (Fellowships)"
+      folder: "src/content/mahber"
+      create: true
+      i18n: true
+      fields:
+          - { label: "Name", name: "name", widget: "string", i18n: true }
+          - { label: "Description", name: "description", widget: "text", i18n: true }
+          - { label: "Schedule", name: "schedule", widget: "string", i18n: true }
+          - { label: "Contact Name", name: "contactName", widget: "string", i18n: duplicate }
+          - {
+                label: "Contact Email",
+                name: "contactEmail",
+                widget: "string",
+                required: false,
+                i18n: duplicate,
+            }
+          - {
+                label: "Image",
+                name: "image",
+                widget: "image",
+                required: false,
+                i18n: duplicate,
+            }
+          - { label: "Display Order", name: "order", widget: "number", i18n: duplicate }
+          - { label: "Mapping Key", name: "mappingKey", widget: "string", i18n: duplicate }

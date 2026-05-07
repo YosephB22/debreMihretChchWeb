@@ -1,0 +1,97 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { filterCollectionByLanguage } from "@js/localeUtils";
+import { useTranslations } from "@js/translationUtils";
+import { sortMahberByOrder } from "@js/mahberUtils";
+import MahberCard from "@components/MahberCard/MahberCard.astro";
+
+const LOCALE = "en" as const;
+const t = useTranslations(LOCALE);
+
+const allMahber = await getCollection("mahber");
+const localeMahber = filterCollectionByLanguage(allMahber, LOCALE);
+
+// Sort by order field, keep full entries for rendering
+const sortedEntries = localeMahber.sort((a, b) => a.data.order - b.data.order);
+
+// Render all entries
+const renderedEntries = await Promise.all(
+	sortedEntries.map(async (entry) => {
+		const { Content } = await render(entry);
+		return { data: entry.data, Content };
+	})
+);
+---
+
+<BaseLayout title={t("mahber:title")} description={t("mahber:description")}>
+
+	<section id="page-header">
+		<div class="cs-container">
+			<h1 class="cs-title">{t("mahber:heading")}</h1>
+		</div>
+	</section>
+
+	<section id="mahber-content">
+		<div class="cs-container">
+			{renderedEntries.length > 0 ? (
+				<ul class="cs-card-group">
+					{renderedEntries.map(({ data, Content }) => (
+						<MahberCard
+							name={data.name}
+							description={data.description}
+							schedule={data.schedule}
+							contactName={data.contactName}
+							contactEmail={data.contactEmail}
+							image={data.image}
+						>
+							<Content />
+						</MahberCard>
+					))}
+				</ul>
+			) : (
+				<p class="cs-empty-state">{t("mahber:emptyState")}</p>
+			)}
+		</div>
+	</section>
+
+</BaseLayout>
+
+<style lang="less">
+	#page-header {
+		padding: clamp(5rem, 10vw, 8rem) 1.25rem clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		background: var(--dark);
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-title { color: #fff; }
+	}
+
+	#mahber-content {
+		padding: var(--sectionPadding);
+		.cs-container { max-width: (1280/16rem); margin: 0 auto; }
+
+		.cs-card-group {
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: clamp(1rem, 2vw, 1.5rem);
+			max-width: (900/16rem);
+			margin-inline: auto;
+		}
+
+		@media only screen and (min-width: 48rem) {
+			.cs-card-group {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		.cs-empty-state {
+			text-align: center;
+			font-size: 1.125rem;
+			color: var(--bodyTextColor);
+			padding: 3rem 1rem;
+		}
+	}
+</style>

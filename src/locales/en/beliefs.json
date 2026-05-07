@@ -1,0 +1,26 @@
+{
+	"title": "Our Beliefs",
+	"description": "Core tenets of the Ethiopian Orthodox Tewahedo faith at Debre Mihret Kidus Gebriel Church",
+	"heading": "Statement of Faith",
+	"intro": "The Ethiopian Orthodox Tewahedo Church is one of the oldest Christian churches in the world, with a rich theological tradition rooted in Scripture, the Church Fathers, and apostolic teaching.",
+	"holyTrinity": {
+		"title": "The Holy Trinity",
+		"body": "We believe in one God in three persons — Father, Son, and Holy Spirit — co-equal, co-eternal, and undivided. The Holy Trinity is the foundation of our faith and the mystery at the heart of all Christian worship. God the Father is the creator of all things, God the Son became incarnate for our salvation, and God the Holy Spirit sanctifies and guides the Church."
+	},
+	"sacraments": {
+		"title": "The Sacraments",
+		"body": "The Ethiopian Orthodox Tewahedo Church observes seven sacraments: Baptism, Confirmation (Myron), Penance (Confession), Holy Communion (the Eucharist), Unction of the Sick, Holy Matrimony, and Holy Orders. These sacraments are the means of grace through which God imparts spiritual life to the faithful."
+	},
+	"scripture": {
+		"title": "Holy Scripture",
+		"body": "We hold the Bible as the inspired Word of God and the ultimate authority for faith and practice. The Ethiopian Orthodox canon includes 81 books, preserving texts such as the Book of Enoch and Jubilees alongside the Old and New Testaments. Scripture is read and interpreted within the living tradition of the Church."
+	},
+	"saints": {
+		"title": "The Saints and the Blessed Virgin Mary",
+		"body": "We honour the saints as exemplary witnesses of faith and seek their intercession in prayer. The Blessed Virgin Mary (Kidist Mariam) holds a place of special reverence as the Mother of God (Theotokos). The Church celebrates numerous feast days dedicated to the saints and angels throughout the liturgical year."
+	},
+	"fasting": {
+		"title": "Fasting",
+		"body": "Fasting is a central spiritual discipline in the Ethiopian Orthodox tradition. The faithful observe over 200 fasting days per year, including the Great Lent (Hudade/Abiy Tsom), the Fast of the Apostles, the Fast of the Prophets, and Wednesday and Friday fasts. During fasting periods, the faithful abstain from all animal products and dedicate additional time to prayer and worship."
+	}
+}

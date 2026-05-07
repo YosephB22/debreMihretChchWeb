@@ -1,0 +1,23 @@
+{
+	"title": "Plan Your Visit",
+	"description": "Everything you need to know before visiting Debre Mihret Kidus Gebriel EOTC in Christchurch",
+	"topper": "Welcome",
+	"heading": "Plan Your Visit",
+	"intro": "We are delighted you are considering visiting our church. Here is everything you need to know to feel welcome and prepared.",
+	"parking": {
+		"title": "Parking",
+		"body": "Free parking is available on site and along the surrounding streets. Please arrive a few minutes early on feast days as spaces fill quickly. Accessible parking is available near the main entrance."
+	},
+	"dressCode": {
+		"title": "Dress Code",
+		"body": "We encourage modest and respectful attire. Women traditionally cover their heads with a netela (shawl) during services, and men remove hats upon entering the church. Comfortable, conservative clothing is appropriate for all visitors."
+	},
+	"children": {
+		"title": "Children",
+		"body": "Children are welcome at all services. Sunday school classes are available for children during the main service. A quiet area is available for parents with infants. We encourage families to worship together."
+	},
+	"whatToExpect": {
+		"title": "What to Expect",
+		"body": "Services are conducted in Ge'ez (the liturgical language) and Amharic, with portions explained in English. A typical Sunday service lasts approximately two to three hours. You will experience chanting, prayer, Scripture readings, and a sermon. Holy Communion is offered to baptised Orthodox faithful. All visitors are welcome to receive blessed bread (tsebel) at the end of the service."
+	}
+}

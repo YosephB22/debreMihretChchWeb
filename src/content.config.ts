@@ -30,9 +30,30 @@ const blogsCollection = defineCollection({
 		}),
 });
 
+const mahberCollection = defineCollection({
+	loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/mahber" }),
+	schema: ({ image }) =>
+		z.object({
+			name: z.string().max(100),
+			description: z.string().max(500),
+			schedule: z.string(),
+			contactName: z.string(),
+			contactEmail: z.string().email().optional(),
+			image: image().optional(),
+			order: z.number(),
+			mappingKey: z
+				.string()
+				.regex(
+					/^[a-z0-9]+(?:-[a-z0-9]+)*$/,
+					"MappingKey must be lowercase alphanumeric with hyphens only",
+				),
+		}),
+});
+
 // 3. Export a single `collections` object to register your collection(s)
 // Note: You can use defineCollection() as many times as you want to create multiple schemas.
 // All collections must be exported from inside the single collections object.
 export const collections = {
 	blog: blogsCollection,
+	mahber: mahberCollection,
 };

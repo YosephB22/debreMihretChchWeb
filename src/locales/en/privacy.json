@@ -1,0 +1,36 @@
+{
+	"title": "Privacy Policy",
+	"description": "Privacy policy for Debre Mihret Kidus Gebriel EOTC website — how we collect, use, and protect your information",
+	"topper": "Legal",
+	"heading": "Privacy Policy",
+	"lastUpdated": "Last updated: January 2025",
+	"intro": "Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church (\"we\", \"our\", \"us\") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard personal information through our website in accordance with the New Zealand Privacy Act 2020.",
+	"dataCollected": {
+		"title": "Information We Collect",
+		"body": "We may collect the following personal information when you interact with our website: your name, email address, and phone number when you submit a contact form; donation amounts and payment details when you make a contribution through our donation page; and your IP address and browser information collected automatically when you visit our site."
+	},
+	"usage": {
+		"title": "How We Use Your Information",
+		"body": "We use your personal information to respond to your enquiries and prayer requests; process and acknowledge donations; send church newsletters and event updates (only with your consent); improve our website and services; and comply with legal obligations under New Zealand law."
+	},
+	"retention": {
+		"title": "Data Retention",
+		"body": "We retain your personal information only for as long as necessary to fulfil the purposes for which it was collected. Contact form submissions are retained for up to 12 months. Donation records are retained for 7 years as required by New Zealand tax law. You may request deletion of your personal information at any time, subject to our legal obligations."
+	},
+	"thirdParty": {
+		"title": "Third-Party Sharing",
+		"body": "We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website and processing donations (such as payment processors), but only to the extent necessary to provide these services. These providers are bound by confidentiality agreements. We may also disclose information if required by law or to protect the rights and safety of our church community."
+	},
+	"cookies": {
+		"title": "Cookies",
+		"body": "Our website uses essential cookies to ensure proper functionality. We do not use tracking or advertising cookies. Essential cookies are necessary for the website to function and cannot be switched off. They are usually set in response to actions you take, such as setting your language preference. You can set your browser to block cookies, but some parts of the site may not function properly."
+	},
+	"contact": {
+		"title": "Contact Us About Privacy",
+		"body": "If you have questions about this privacy policy, wish to access or correct your personal information, or want to make a complaint about how we have handled your information, please contact us at our church office. Under the New Zealand Privacy Act 2020, you have the right to access and request correction of your personal information. If you are not satisfied with our response, you may contact the Office of the Privacy Commissioner at www.privacy.org.nz."
+	},
+	"nzPrivacyAct": {
+		"title": "New Zealand Privacy Act 2020",
+		"body": "This privacy policy is governed by the New Zealand Privacy Act 2020. The Act sets out 13 information privacy principles that govern how agencies collect, store, use, and disclose personal information. We are committed to complying with all applicable principles and ensuring your rights under the Act are upheld."
+	}
+}

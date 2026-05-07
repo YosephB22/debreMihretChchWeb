@@ -1,0 +1,105 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { useTranslations } from "@js/translationUtils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+---
+
+<BaseLayout title={t("privacy:title")} description={t("privacy:description")}>
+
+	<section id="page-header">
+		<div class="cs-container">
+			<span class="cs-topper">{t("privacy:topper")}</span>
+			<h1 class="cs-title">{t("privacy:heading")}</h1>
+			<p class="cs-text">{t("privacy:lastUpdated")}</p>
+		</div>
+	</section>
+
+	<section id="privacy-content">
+		<div class="cs-container">
+			<p class="cs-text intro">{t("privacy:intro")}</p>
+			<div class="privacy-grid">
+				<div class="privacy-card">
+					<h2>{t("privacy:dataCollected.title")}</h2>
+					<p class="cs-text">{t("privacy:dataCollected.body")}</p>
+				</div>
+
+				<div class="privacy-card">
+					<h2>{t("privacy:usage.title")}</h2>
+					<p class="cs-text">{t("privacy:usage.body")}</p>
+				</div>
+
+				<div class="privacy-card">
+					<h2>{t("privacy:retention.title")}</h2>
+					<p class="cs-text">{t("privacy:retention.body")}</p>
+				</div>
+
+				<div class="privacy-card">
+					<h2>{t("privacy:thirdParty.title")}</h2>
+					<p class="cs-text">{t("privacy:thirdParty.body")}</p>
+				</div>
+
+				<div class="privacy-card">
+					<h2>{t("privacy:cookies.title")}</h2>
+					<p class="cs-text">{t("privacy:cookies.body")}</p>
+				</div>
+
+				<div class="privacy-card">
+					<h2>{t("privacy:contact.title")}</h2>
+					<p class="cs-text">{t("privacy:contact.body")}</p>
+				</div>
+
+				<div class="privacy-card">
+					<h2>{t("privacy:nzPrivacyAct.title")}</h2>
+					<p class="cs-text">{t("privacy:nzPrivacyAct.body")}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</BaseLayout>
+
+<style lang="less">
+	#page-header {
+		padding: clamp(5rem, 10vw, 8rem) 1.25rem clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		background: var(--dark);
+		.cs-container { max-width: (800/16rem); margin: 0 auto; }
+		.cs-topper { color: var(--accent); }
+		.cs-title { color: #fff; }
+		.cs-text { color: rgba(255, 255, 255, 0.8); }
+	}
+
+	#privacy-content {
+		padding: var(--sectionPadding);
+		.cs-container { max-width: (1280/16rem); margin: 0 auto; }
+
+		.intro {
+			max-width: (700/16rem);
+			margin: 0 auto 2rem;
+			text-align: center;
+		}
+
+		.privacy-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.privacy-card {
+			padding: 2rem;
+			background: var(--medium);
+			border-radius: var(--borderRadius);
+			border-left: 4px solid var(--primary);
+
+			h2 { font-size: 1.25rem; color: var(--primary); margin-bottom: 0.75rem; }
+			.cs-text { color: var(--bodyTextColor); font-size: 0.9375rem; }
+		}
+	}
+
+	@media only screen and (min-width: 48rem) {
+		#privacy-content .privacy-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+</style>
