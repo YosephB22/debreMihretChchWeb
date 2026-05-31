@@ -1,15 +1,15 @@
 export const SITE = {
-  title: "Debre Mihret Kidus Gebriel EOTC",
-  tagline: "St. Gebriel Ethiopian Orthodox Tewahedo Church",
-  description: "Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church in Christchurch, New Zealand",
+  title: "Debre Mihret St. Gabriel EOTC",
+  tagline: "St. Gabriel Ethiopian Orthodox Tewahedo Church",
+  description: "Debre Mihret St. Gabriel Ethiopian Orthodox Tewahedo Church in Christchurch, New Zealand",
   url: "https://www.yourwebsite.com", // TODO: update with real domain
-  author: "St. Gebriel EOTC",
+  author: "St. Gabriel EOTC",
   locale: "en",
 };
 
 export const BUSINESS = {
-  name: "Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church",
-  nameShort: "St. Gebriel EOTC – Christchurch",
+  name: "Debre Mihret St. Gabriel Ethiopian Orthodox Tewahedo Church",
+  nameShort: "St. Gabriel EOTC – Christchurch",
   email: "", // TODO: add real email
   phoneForTel: "", // TODO: add real phone
   phoneFormatted: "", // TODO: add real phone

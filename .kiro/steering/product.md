@@ -1,6 +1,6 @@
 # Product Overview
 
-Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church website — a bilingual (English/Amharic) static site for the Ethiopian Orthodox community in Christchurch, New Zealand.
+Debre Mihret St. Gabriel Ethiopian Orthodox Tewahedo Church website — a bilingual (English/Amharic) static site for the Ethiopian Orthodox community in Christchurch, New Zealand.
 
 ## Purpose
 

@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This feature adds essential pages to the Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church website. The pages address gaps identified in the current site: visitor orientation, faith documentation, media archives, event scheduling, fellowships and service groups (mahber), and legal compliance. All pages follow the existing bilingual (EN/AM) architecture, LESS styling with CodeStitch patterns, and Decap CMS content management approach.
+This feature adds essential pages to the Debre Mihret St. Gebriel Ethiopian Orthodox Tewahedo Church website. The pages address gaps identified in the current site: visitor orientation, faith documentation, media archives, event scheduling, fellowships and service groups (mahber), and legal compliance. All pages follow the existing bilingual (EN/AM) architecture, LESS styling with CodeStitch patterns, and Decap CMS content management approach.
 
 ## Glossary
 
-- **Website**: The Debre Mihret Kidus Gebriel EOTC Astro-based static site deployed on Netlify
+- **Website**: The Debre Mihret St. Gebriel EOTC Astro-based static site deployed on Netlify
 - **Visitor**: A person accessing the website for the first time or planning their first in-person visit
 - **Page_Router**: The Astro file-based routing system that serves pages under /en/ and /am/ prefixes
 - **Translation_System**: The custom useTranslations(locale) utility that loads namespaced JSON translation files

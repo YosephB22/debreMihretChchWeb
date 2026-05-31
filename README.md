@@ -1,6 +1,6 @@
 Comprehensive Project Overview
 1. Project Purpose
-This is a website for Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church in Christchurch, New Zealand. It's a bilingual (English/Amharic) church website featuring service times, about the church, news/blog, gallery, donation info, and contact details. The project is associated with "Finote Hiwot Sunday School."
+This is a website for Debre Mihret St. Gebriel Ethiopian Orthodox Tewahedo Church in Christchurch, New Zealand. It's a bilingual (English/Amharic) church website featuring service times, about the church, news/blog, gallery, donation info, and contact details. The project is associated with "Finote Hiwot Sunday School."
 
 2. Tech Stack
 Astro v6.0.8 (static site generator)
@@ -77,7 +77,7 @@ CodeTours provided in .tours/ for onboarding
 Here's a comprehensive overview of your project:
 
 Project Summary
-Debre Mihret Kidus Gebriel Ethiopian Orthodox Tewahedo Church — a bilingual church website for the Ethiopian Orthodox community in Christchurch, New Zealand.
+Debre Mihret St. Gebriel Ethiopian Orthodox Tewahedo Church — a bilingual church website for the Ethiopian Orthodox community in Christchurch, New Zealand.
 
 Tech Stack
 Astro 6.0.8 (static site generator)

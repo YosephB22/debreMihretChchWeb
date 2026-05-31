@@ -2,7 +2,7 @@
 
 ## Overview
 
-This design adds six essential pages to the Debre Mihret Kidus Gebriel EOTC website: Plan Your Visit, Beliefs, Sermon Archive, Events Calendar, Mahber (Fellowships & Services), and Privacy Policy. Each page follows the established bilingual (EN/AM) architecture with prefix-based routing, LESS styling with CodeStitch patterns, Decap CMS content management, and Astro Content Collections with Zod schema validation.
+This design adds six essential pages to the Debre Mihret St. Gebriel EOTC website: Plan Your Visit, Beliefs, Sermon Archive, Events Calendar, Mahber (Fellowships & Services), and Privacy Policy. Each page follows the established bilingual (EN/AM) architecture with prefix-based routing, LESS styling with CodeStitch patterns, Decap CMS content management, and Astro Content Collections with Zod schema validation.
 
 The pages fall into two categories:
 1. **Static content pages** (Visit, Beliefs, Privacy) — content managed via translation namespace JSON files
