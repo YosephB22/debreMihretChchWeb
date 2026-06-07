@@ -10,23 +10,31 @@ export const SITE = {
 export const BUSINESS = {
   name: "Debre Mihret St. Gabriel Ethiopian Orthodox Tewahedo Church",
   nameShort: "St. Gabriel EOTC – Christchurch",
-  email: "", // TODO: add real email
-  phoneForTel: "", // TODO: add real phone
-  phoneFormatted: "", // TODO: add real phone
-  logo: "/favicon.svg", // update to the URL of your logo image
+  email: "", // TODO: add real email address
+  phoneForTel: "", // TODO: add real phone e.g. "+6421234567"
+  phoneFormatted: "", // TODO: add display phone e.g. "+64 21 234 567"
+  logo: "/favicon.svg",
   address: {
-    lineOne: "3 Praem Place", // confirm exact street — known suburb: Shirley
+    lineOne: "3 Praem Place",
     lineTwo: "Shirley,",
     city: "Christchurch,",
     state: "Canterbury",
     zip: "",
     country: "New Zealand",
-    mapLink: "", // add Google Maps link once address confirmed
+    mapLink: "", // TODO: add Google Maps directions URL
+    mapEmbed: "https://maps.google.com/maps?q=3+Praem+Place,+Shirley,+Christchurch,+New+Zealand&output=embed",
   },
   socials: {
-    facebook: "", // TODO: add real Facebook page
-    instagram: "", // TODO: add real Instagram page
+    facebook: "", // TODO: add Facebook page URL
+    instagram: "", // TODO: add Instagram profile URL
   },
+  // Donation — Unit 4
+  bankAccount: {
+    name: "", // TODO: add bank account name
+    number: "", // TODO: add bank account number e.g. "12-1234-1234567-00"
+  },
+  donateUrl: "", // TODO: add PayPal donate link URL
+  // Contact form handled by Netlify Forms (data-netlify="true" on the <form>)
 };
 
 export const OG = {

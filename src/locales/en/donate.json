@@ -5,17 +5,22 @@
 	"heading": "Give & Tithe",
 	"p": "Your generous contributions help us maintain our church, support community programs, Sunday School, and assist those in need. Every gift makes a difference.",
 	"bank": {
-		"title": "Bank Transfer",
+		"topper": "Bank Transfer",
+		"title": "Direct Bank Transfer",
 		"name": "Account Name",
 		"number": "Account Number",
-		"note": "Please use your name as the reference so we can acknowledge your gift."
+		"note": "Please use your name as the payment reference so we can acknowledge your gift.",
+		"copy": "Copy",
+		"copied": "Copied!"
 	},
-	"other": {
-		"title": "Other Ways to Give",
-		"items": [
-			"In person during Sunday services",
-			"Contact us to arrange regular giving"
-		]
+	"online": {
+		"topper": "Online Giving",
+		"description": "Make a secure donation online. Every contribution helps sustain our community and ministry.",
+		"button": "Donate Online"
+	},
+	"inperson": {
+		"topper": "In Person",
+		"detail": "You are welcome to give in person during our Sunday services at 3 Praem Place, Shirley, Christchurch."
 	},
 	"thanks": "Thank you for your generosity. May God bless you abundantly."
 }

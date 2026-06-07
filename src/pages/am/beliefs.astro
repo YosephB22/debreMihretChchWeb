@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHeader from "@components/PageHeader/PageHeader.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
 
@@ -9,12 +10,7 @@ const t = useTranslations(locale);
 
 <BaseLayout title={t("beliefs:title")} description={t("beliefs:description")}>
 
-	<section id="page-header">
-		<div class="cs-container">
-			<span class="cs-topper">{t("beliefs:heading")}</span>
-			<h1 class="cs-title">{t("beliefs:title")}</h1>
-		</div>
-	</section>
+	<PageHeader topper={t("beliefs:heading")} title={t("beliefs:title")} />
 
 	<section id="beliefs-content">
 		<div class="cs-container">
@@ -51,14 +47,6 @@ const t = useTranslations(locale);
 </BaseLayout>
 
 <style lang="less">
-	#page-header {
-		padding: clamp(5rem, 10vw, 8rem) 1.25rem clamp(2rem, 4vw, 3rem);
-		text-align: center;
-		background: var(--dark);
-		.cs-container { max-width: (800/16rem); margin: 0 auto; }
-		.cs-topper { color: var(--accent); }
-		.cs-title { color: #fff; }
-	}
 
 	#beliefs-content {
 		padding: var(--sectionPadding);

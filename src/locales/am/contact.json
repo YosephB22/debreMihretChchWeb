@@ -7,5 +7,22 @@
 	"address": "አድራሻ",
 	"email": "ኢሜይል",
 	"phone": "ስልክ",
-	"directions": "አቅጣጫ ያግኙ"
+	"directions": "አቅጣጫ ያግኙ",
+	"socials": "ይከተሉን",
+	"mapHeading": "ያግኙን",
+	"form": {
+		"heading": "መልእክት ይላኩ",
+		"name": "ስምዎ",
+		"namePlaceholder": "ለምሳሌ፦ ዮሐንስ ተስፋዬ",
+		"email": "ኢሜይልዎ",
+		"emailPlaceholder": "you@example.com",
+		"subject": "ርዕሰ ጉዳይ",
+		"subjectPlaceholder": "እንዴት ልንረዳዎ እንችላለን?",
+		"message": "መልእክት",
+		"messagePlaceholder": "መልእክትዎን እዚህ ይጻፉ…",
+		"submit": "መልእክት ላክ",
+		"sending": "በመላክ ላይ…",
+		"success": "አመሰግናለሁ — መልእክትዎ ተቀብለናል። በቅርቡ እንመልሳለን።",
+		"error": "ችግር ተከስቷል። እባክዎ እንደገና ይሞክሩ ወይም በቀጥታ ኢሜይል ያድርጉልን።"
+	}
 }

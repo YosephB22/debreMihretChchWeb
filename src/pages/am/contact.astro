@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHeader from "@components/PageHeader/PageHeader.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
 import { BUSINESS } from "@data/client";
@@ -10,100 +11,287 @@ const t = useTranslations(locale);
 
 <BaseLayout title={t("contact:title")} description={t("contact:description")}>
 
-	<section id="page-header">
+	<PageHeader topper={t("contact:topper")} title={t("contact:heading")} text={t("contact:p")} />
+
+	<!-- Info cards — only rendered when at least one field is populated -->
+	{(BUSINESS.email || BUSINESS.phoneForTel || BUSINESS.socials.facebook || BUSINESS.socials.instagram) && (
+		<section id="contact-info">
+			<div class="cs-container">
+				<div class="info-grid">
+
+					<!-- Phone & Email -->
+					{(BUSINESS.email || BUSINESS.phoneForTel) && (
+						<div class="info-card">
+							{BUSINESS.phoneForTel && (
+								<div class="info-item">
+									<h2>{t("contact:phone")}</h2>
+									<a href={`tel:${BUSINESS.phoneForTel}`}>{BUSINESS.phoneFormatted}</a>
+								</div>
+							)}
+							{BUSINESS.email && (
+								<div class="info-item">
+									<h2>{t("contact:email")}</h2>
+									<a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
+								</div>
+							)}
+						</div>
+					)}
+
+					<!-- Socials -->
+					{(BUSINESS.socials.facebook || BUSINESS.socials.instagram) && (
+						<div class="info-card">
+							<h2>{t("contact:socials")}</h2>
+							{BUSINESS.socials.facebook && (
+								<a href={BUSINESS.socials.facebook} target="_blank" rel="noopener noreferrer" class="social-link">
+									Facebook
+								</a>
+							)}
+							{BUSINESS.socials.instagram && (
+								<a href={BUSINESS.socials.instagram} target="_blank" rel="noopener noreferrer" class="social-link">
+									Instagram
+								</a>
+							)}
+						</div>
+					)}
+				</div>
+			</div>
+		</section>
+	)}
+
+	<!-- Contact form — handled by Netlify Forms -->
+	<section id="contact-form-section">
 		<div class="cs-container">
-			<span class="cs-topper">{t("contact:topper")}</span>
-			<h1 class="cs-title">{t("contact:heading")}</h1>
-			<p class="cs-text">{t("contact:p")}</p>
+			<h2 class="cs-title">{t("contact:form.heading")}</h2>
+
+			<form
+				id="contact-form"
+				name="contact"
+				method="POST"
+				data-netlify="true"
+				data-netlify-honeypot="bot-field"
+				novalidate
+			>
+				<input type="hidden" name="form-name" value="contact" />
+				<p class="honeypot"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+				<div class="form-row">
+					<div class="form-field">
+						<label for="cf-name">{t("contact:form.name")}</label>
+						<input id="cf-name" name="name" type="text" placeholder={t("contact:form.namePlaceholder")} required minlength="2" autocomplete="name" />
+					</div>
+					<div class="form-field">
+						<label for="cf-email">{t("contact:form.email")}</label>
+						<input id="cf-email" name="email" type="email" placeholder={t("contact:form.emailPlaceholder")} required autocomplete="email" />
+					</div>
+				</div>
+
+				<div class="form-field">
+					<label for="cf-subject">{t("contact:form.subject")}</label>
+					<input id="cf-subject" name="subject" type="text" placeholder={t("contact:form.subjectPlaceholder")} required />
+				</div>
+
+				<div class="form-field">
+					<label for="cf-message">{t("contact:form.message")}</label>
+					<textarea id="cf-message" name="message" rows="6" placeholder={t("contact:form.messagePlaceholder")} required minlength="10"></textarea>
+				</div>
+
+				<button type="submit" class="cs-button-solid" id="cf-submit">
+					{t("contact:form.submit")}
+				</button>
+
+				<p id="cf-success" class="form-feedback form-success" aria-live="polite" hidden>
+					{t("contact:form.success")}
+				</p>
+				<p id="cf-error" class="form-feedback form-error" aria-live="polite" hidden>
+					{t("contact:form.error")}
+				</p>
+			</form>
 		</div>
 	</section>
 
-	<section id="contact-content">
+	<!-- Google Maps embed -->
+	<section id="contact-map">
 		<div class="cs-container">
-			<div class="contact-grid">
-				<div class="contact-card">
-					<h2>{t("contact:address")}</h2>
-					<p>
-						{BUSINESS.address.lineOne}<br />
-						{BUSINESS.address.lineTwo}<br />
-						{BUSINESS.address.city} {BUSINESS.address.state}<br />
-						{BUSINESS.address.country}
-					</p>
-					{BUSINESS.address.mapLink && (
-						<a href={BUSINESS.address.mapLink} target="_blank" rel="noopener" class="cs-button-solid">
-							{t("contact:directions")}
-						</a>
-					)}
-				</div>
-
-				{(BUSINESS.email || BUSINESS.phoneForTel) && (
-					<div class="contact-card">
-						{BUSINESS.email && (
-							<div class="contact-item">
-								<h2>{t("contact:email")}</h2>
-								<a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
-							</div>
-						)}
-						{BUSINESS.phoneForTel && (
-							<div class="contact-item">
-								<h2>{t("contact:phone")}</h2>
-								<a href={`tel:${BUSINESS.phoneForTel}`}>{BUSINESS.phoneFormatted}</a>
-							</div>
-						)}
-					</div>
-				)}
+			<h2 class="cs-title map-heading">{t("contact:mapHeading")}</h2>
+			<div class="map-wrapper">
+				<iframe
+					src={BUSINESS.address.mapEmbed}
+					title={t("contact:mapHeading")}
+					width="100%"
+					height="400"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					allowfullscreen
+				></iframe>
 			</div>
 		</div>
 	</section>
 
 </BaseLayout>
 
+<script is:inline>
+	document.addEventListener("astro:page-load", () => {
+		const form = document.getElementById("contact-form");
+		if (!form) return;
+
+		const submit = document.getElementById("cf-submit");
+		const successMsg = document.getElementById("cf-success");
+		const errorMsg = document.getElementById("cf-error");
+		const originalLabel = submit.textContent;
+
+		form.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			if (!form.checkValidity()) { form.reportValidity(); return; }
+
+			submit.disabled = true;
+			submit.textContent = "በመላክ ላይ…";
+			successMsg.hidden = true;
+			errorMsg.hidden = true;
+
+			try {
+				const res = await fetch("/", {
+					method: "POST",
+					headers: { "Content-Type": "application/x-www-form-urlencoded" },
+					body: new URLSearchParams(new FormData(form)).toString(),
+				});
+				if (res.ok) { successMsg.hidden = false; form.reset(); }
+				else { errorMsg.hidden = false; }
+			} catch { errorMsg.hidden = false; }
+			finally { submit.disabled = false; submit.textContent = originalLabel; }
+		});
+	});
+</script>
+
 <style lang="less">
-	#page-header {
-		padding: clamp(5rem, 10vw, 8rem) 1.25rem clamp(2rem, 4vw, 3rem);
-		text-align: center;
-		background: var(--dark);
-		.cs-container { max-width: (800/16rem); margin: 0 auto; }
-		.cs-topper { color: var(--accent); }
-		.cs-title { color: #fff; }
-		.cs-text { color: rgba(255, 255, 255, 0.8); }
-	}
-
-	#contact-content {
+	#contact-info {
 		padding: var(--sectionPadding);
-		.cs-container { max-width: (900/16rem); margin: 0 auto; }
+		.cs-container { max-width: (1100/16rem); margin: 0 auto; }
+	}
 
-		.contact-grid {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 2rem;
+	.info-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	.info-card {
+		padding: 2rem;
+		background: var(--medium);
+		border-radius: var(--borderRadius);
+		border-top: 3px solid var(--primary);
+
+		h2 {
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: var(--primary);
+			margin-bottom: 0.875rem;
 		}
 
-		.contact-card {
-			padding: 2rem;
-			background: var(--medium);
-			border-radius: var(--borderRadius);
+		a:not(.cs-button-solid) {
+			color: var(--headerColor);
+			font-weight: 500;
+			text-decoration: none;
+			&:hover { color: var(--primary); text-decoration: underline; }
+		}
 
-			h2 { font-size: 1.125rem; color: var(--headerColor); margin-bottom: 1rem; }
+		.info-item {
+			margin-bottom: 1.25rem;
+			&:last-child { margin-bottom: 0; }
+		}
 
-			p { color: var(--bodyTextColor); line-height: 1.8; }
-
-			a:not(.cs-button-solid) {
-				color: var(--primary);
-				text-decoration: none;
-				&:hover { text-decoration: underline; }
-			}
-
-			.cs-button-solid { margin-top: 1.5rem; }
-
-			.contact-item {
-				margin-bottom: 1.5rem;
-				&:last-child { margin-bottom: 0; }
-			}
+		.social-link {
+			display: inline-block;
+			margin-right: 1rem;
+			margin-bottom: 0.5rem;
+			font-weight: 500;
 		}
 	}
+
+	#contact-map {
+		padding: 0 1rem var(--sectionPadding);
+		.cs-container { max-width: (1100/16rem); margin: 0 auto; }
+		.map-heading { font-size: 1.25rem; margin-bottom: 1.25rem; }
+		.map-wrapper {
+			border-radius: var(--borderRadius);
+			overflow: hidden;
+			border: 1px solid var(--grey);
+			iframe { display: block; border: none; width: 100%; }
+		}
+	}
+
+	#contact-form-section {
+		padding: var(--sectionPadding) 1rem;
+		.cs-container { max-width: (720/16rem); margin: 0 auto; }
+		.cs-title { margin-bottom: 2rem; }
+	}
+
+	.honeypot { display: none; }
+
+	#contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+
+	.form-field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+
+		label { font-size: 0.875rem; font-weight: 600; color: var(--headerColor); }
+
+		input, textarea {
+			width: 100%;
+			padding: 0.75rem 1rem;
+			border: 1px solid var(--grey);
+			border-radius: var(--borderRadiusSm);
+			background: var(--light);
+			color: var(--headerColor);
+			font-size: 1rem;
+			font-family: inherit;
+			transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+			&::placeholder { color: #aaa; }
+			&:focus {
+				outline: none;
+				border-color: var(--primary);
+				box-shadow: 0 0 0 3px rgba(19, 97, 245, 0.15);
+			}
+			&:invalid:not(:placeholder-shown) { border-color: #d93025; }
+		}
+
+		textarea { resize: vertical; min-height: 8rem; }
+	}
+
+	.cs-button-solid {
+		align-self: flex-start;
+		&:disabled { opacity: 0.6; cursor: not-allowed; }
+	}
+
+	.form-feedback {
+		padding: 1rem 1.25rem;
+		border-radius: var(--borderRadiusSm);
+		font-weight: 500;
+		margin-top: 0.5rem;
+	}
+
+	.form-success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+	.form-error   { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
 
 	@media only screen and (min-width: 48rem) {
-		#contact-content .contact-grid { grid-template-columns: repeat(2, 1fr); }
+		.info-grid { grid-template-columns: repeat(2, 1fr); }
+		.form-row  { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media only screen and (min-width: 64rem) {
+		.info-grid { grid-template-columns: repeat(3, 1fr); }
 	}
 </style>

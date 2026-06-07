@@ -1,107 +1,277 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHeader from "@components/PageHeader/PageHeader.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
+import { BUSINESS } from "@data/client";
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
-
-type OtherItem = string;
-const otherItems = t<OtherItem[]>("donate:other.items");
 ---
 
 <BaseLayout title={t("donate:title")} description={t("donate:description")}>
 
-	<section id="page-header">
-		<div class="cs-container">
-			<span class="cs-topper">{t("donate:topper")}</span>
-			<h1 class="cs-title">{t("donate:heading")}</h1>
-			<p class="cs-text">{t("donate:p")}</p>
-		</div>
-	</section>
+	<PageHeader topper={t("donate:topper")} title={t("donate:heading")} text={t("donate:p")} />
 
-	<section id="donate-content">
+	<section id="donate-1750">
 		<div class="cs-container">
-			<div class="donate-grid">
-				<div class="donate-card">
-					<h2>{t("donate:bank.title")}</h2>
-					<dl>
-						<dt>{t("donate:bank.name")}</dt>
-						<dd>— <!-- TODO: add account name --></dd>
-						<dt>{t("donate:bank.number")}</dt>
-						<dd>— <!-- TODO: add account number --></dd>
-					</dl>
-					<p class="note">{t("donate:bank.note")}</p>
+
+			<!-- Left: Bank Transfer -->
+			<div class="cs-form-group">
+				<div class="cs-content">
+					<span class="cs-topper">{t("donate:bank.topper")}</span>
+					<h2 class="cs-title">{t("donate:bank.title")}</h2>
 				</div>
 
-				<div class="donate-card">
-					<h2>{t("donate:other.title")}</h2>
-					<ul>
-						{otherItems.map((item) => (
-							<li>{item}</li>
-						))}
-					</ul>
+				<dl class="cs-bank">
+					<div class="cs-bank-row">
+						<dt>{t("donate:bank.name")}</dt>
+						<dd>{BUSINESS.bankAccount.name || "—"}</dd>
+					</div>
+					<div class="cs-bank-row">
+						<dt>{t("donate:bank.number")}</dt>
+						<dd>
+							<span class="cs-account-number">{BUSINESS.bankAccount.number || "—"}</span>
+							{BUSINESS.bankAccount.number && (
+								<button
+									class="cs-copy-btn"
+									data-copy={BUSINESS.bankAccount.number}
+									data-copied={t("donate:bank.copied")}
+									aria-label="Copy account number"
+								>
+									{t("donate:bank.copy")}
+								</button>
+							)}
+						</dd>
+					</div>
+				</dl>
+
+				<p class="cs-note">{t("donate:bank.note")}</p>
+			</div>
+
+			<!-- Right: Online Giving + In Person -->
+			<div class="cs-info-group">
+				{BUSINESS.donateUrl && (
+					<div class="cs-info">
+						<span class="cs-topper">{t("donate:online.topper")}</span>
+						<span class="cs-detail">{t("donate:online.description")}</span>
+						<a href={BUSINESS.donateUrl} target="_blank" rel="noopener noreferrer" class="cs-button-solid">
+							{t("donate:online.button")}
+						</a>
+					</div>
+				)}
+				<div class="cs-info">
+					<span class="cs-topper">{t("donate:inperson.topper")}</span>
+					<span class="cs-detail">{t("donate:inperson.detail")}</span>
 				</div>
 			</div>
 
-			<p class="thanks">{t("donate:thanks")}</p>
 		</div>
+
+		<p class="cs-thanks">{t("donate:thanks")}</p>
 	</section>
 
 </BaseLayout>
 
+<script is:inline>
+	document.addEventListener("astro:page-load", () => {
+		document.querySelectorAll(".cs-copy-btn").forEach((btn) => {
+			btn.addEventListener("click", async () => {
+				const text = btn.dataset.copy;
+				const copiedLabel = btn.dataset.copied || "ተቀድቷል!";
+				const originalLabel = btn.textContent;
+				try {
+					await navigator.clipboard.writeText(text);
+					btn.textContent = copiedLabel;
+					btn.classList.add("cs-copied");
+					setTimeout(() => {
+						btn.textContent = originalLabel;
+						btn.classList.remove("cs-copied");
+					}, 2000);
+				} catch {
+					// clipboard not available — silently ignore
+				}
+			});
+		});
+	});
+</script>
+
 <style lang="less">
-	#page-header {
-		padding: clamp(5rem, 10vw, 8rem) 1.25rem clamp(2rem, 4vw, 3rem);
-		text-align: center;
-		background: var(--dark);
-		.cs-container { max-width: (800/16rem); margin: 0 auto; }
-		.cs-topper { color: var(--accent); }
-		.cs-title { color: #fff; }
-		.cs-text { color: rgba(255, 255, 255, 0.8); }
-	}
+	/* Mobile */
+	@media only screen and (min-width: 0rem) {
+		#donate-1750 {
+			padding: var(--sectionPadding);
+			overflow: hidden;
+			position: relative;
+			z-index: 1;
+		}
 
-	#donate-content {
-		padding: var(--sectionPadding);
-		.cs-container { max-width: (900/16rem); margin: 0 auto; }
+		#donate-1750 .cs-container {
+			width: 100%;
+			max-width: (704/16rem);
+			margin: auto;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: stretch;
+			gap: clamp(3rem, 5vw, 4rem);
+		}
 
-		.donate-grid {
-			display: grid;
-			grid-template-columns: 1fr;
+		#donate-1750 .cs-content {
+			text-align: left;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		#donate-1750 .cs-form-group {
+			width: 100%;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1.5rem;
+		}
+
+		#donate-1750 .cs-title {
+			margin: 0;
+		}
+
+		/* Bank details */
+		#donate-1750 .cs-bank {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			gap: 1.25rem;
+			margin: 0;
+			padding: 0;
+		}
+
+		#donate-1750 .cs-bank-row {
+			display: flex;
+			flex-direction: column;
+			gap: 0.375rem;
+
+			dt {
+				font-size: 0.75rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: var(--primary);
+			}
+
+			dd {
+				margin: 0;
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				flex-wrap: wrap;
+			}
+		}
+
+		#donate-1750 .cs-account-number {
+			font-size: 1.25rem;
+			font-weight: 700;
+			color: var(--headerColor);
+			letter-spacing: 0.04em;
+		}
+
+		#donate-1750 .cs-copy-btn {
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			padding: 0.3rem 0.75rem;
+			background: transparent;
+			border: 1.5px solid var(--primary);
+			color: var(--primary);
+			border-radius: var(--borderRadiusSm);
+			cursor: pointer;
+			transition: background 0.2s, color 0.2s;
+
+			&:hover,
+			&.cs-copied {
+				background: var(--primary);
+				color: #fff;
+			}
+		}
+
+		#donate-1750 .cs-note {
+			font-size: 0.9375rem;
+			font-style: italic;
+			color: var(--bodyTextColor);
+			margin: 0;
+		}
+
+		/* Info group */
+		#donate-1750 .cs-info-group {
+			display: flex;
+			flex-direction: column;
 			gap: 2rem;
 		}
 
-		.donate-card {
-			padding: 2rem;
-			background: var(--medium);
-			border-radius: var(--borderRadius);
-
-			h2 { font-size: 1.25rem; color: var(--headerColor); margin-bottom: 1.5rem; }
-
-			dl {
-				display: grid;
-				grid-template-columns: auto 1fr;
-				gap: 0.5rem 1rem;
-
-				dt { font-weight: 600; color: var(--headerColor); }
-				dd { color: var(--bodyTextColor); margin: 0; }
-			}
-
-			ul {
-				list-style: none;
-				padding: 0;
-				li {
-					padding: 0.5rem 0;
-					border-bottom: 1px solid var(--grey);
-					&:last-child { border-bottom: none; }
-				}
-			}
-
-			.note { margin-top: 1.5rem; font-size: 0.9375rem; font-style: italic; color: var(--bodyTextColor); }
+		#donate-1750 .cs-info {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
 		}
 
-		.thanks {
-			margin-top: 3rem;
+		#donate-1750 .cs-topper {
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: var(--primary);
+		}
+
+		#donate-1750 .cs-detail {
+			font-size: 1rem;
+			line-height: 1.6;
+			color: var(--bodyTextColor);
+			display: block;
+		}
+
+		#donate-1750 .cs-button-solid {
+			font-size: 1rem;
+			font-weight: 700;
+			line-height: clamp(2.875em, 5.5vw, 3.5em);
+			text-align: center;
+			text-decoration: none;
+			min-width: 9.375rem;
+			margin-top: 0.5rem;
+			box-sizing: border-box;
+			padding: 0 1.5rem;
+			background-color: var(--primary);
+			color: var(--bodyTextColorWhite);
+			border: none;
+			display: inline-block;
+			position: relative;
+			z-index: 1;
+			overflow: hidden;
+			transition: color 0.3s;
+
+			&::before {
+				content: "";
+				width: 0%;
+				height: 100%;
+				background: var(--primaryDark);
+				opacity: 1;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				transition: width 0.3s;
+			}
+
+			&:hover {
+				color: #fff;
+				&::before { width: 100%; }
+			}
+		}
+
+		#donate-1750 .cs-thanks {
+			margin-top: clamp(2.5rem, 5vw, 4rem);
 			text-align: center;
 			font-size: 1.125rem;
 			font-weight: 500;
@@ -109,7 +279,23 @@ const otherItems = t<OtherItem[]>("donate:other.items");
 		}
 	}
 
+	/* Tablet */
 	@media only screen and (min-width: 48rem) {
-		#donate-content .donate-grid { grid-template-columns: repeat(2, 1fr); }
+		#donate-1750 .cs-container {
+			flex-direction: row;
+			align-items: flex-start;
+			max-width: (1024/16rem);
+		}
+
+		#donate-1750 .cs-form-group { flex: 1; }
+		#donate-1750 .cs-info-group { flex: 1; }
+	}
+
+	/* Desktop */
+	@media only screen and (min-width: 64rem) {
+		#donate-1750 .cs-container {
+			max-width: (1024/16rem);
+			padding: 2.5rem 1.5rem;
+		}
 	}
 </style>

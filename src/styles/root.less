@@ -5,30 +5,25 @@
 /* CodeStitch Root and Helpers */
 @media only screen and (min-width: 0em) {
   :root {
-    /* === BRAND COLOURS === */
+    /* === BRAND COLOURS — OGP Blue System === */
 
-    /* Primary — Astroship violet */
-    --primary: #7c3aed;
-    --primaryLight: #a78bfa;
-    --primaryDark: #4c1d95;
+    --primary: #1361F5;
+    --primaryLight: #4D8BF7;
+    --primaryDark: #0D47C2;
 
-    /* Secondary — warm Ethiopian gold/earth */
-    --secondary: #92400e;
-    --secondaryLight: #d97706;
-
-    /* Accent — Ethiopian liturgical gold */
-    --accent: #f59e0b;
+    /* Accent — same as primary in pure OGP palette */
+    --accent: #1361F5;
 
     /* === BACKGROUNDS === */
-    --light: #fafafa;       /* page background */
-    --medium: #f4f4f5;      /* alternate section background */
-    --grey: #e4e4e7;        /* borders, dividers, input outlines */
-    --dark: #4c1d95;        /* footer & hero — deep purple (primaryDark) */
+    --light: #FFFFFF;       /* page background */
+    --medium: #F7F8FA;      /* alternate section background */
+    --grey: #E2E8F0;        /* borders, dividers, input outlines */
+    --dark: #0B2449;        /* footer & hero — deep navy */
 
     /* === TEXT === */
-    --headerColor: #1e1b4b;         /* headings — indigo-950 */
-    --bodyTextColor: #52525b;       /* body paragraphs — zinc-600 */
-    --bodyTextColorWhite: #fafafa;  /* text on dark backgrounds (footer etc) */
+    --headerColor: #1A1A1A;         /* headings — near-black */
+    --bodyTextColor: #4A4A4A;       /* body paragraphs — medium grey */
+    --bodyTextColorWhite: #FFFFFF;  /* text on dark backgrounds */
 
     /* === TYPOGRAPHY === */
     --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
@@ -39,8 +34,12 @@
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
 
     /* === SHAPE === */
-    --borderRadius: 0.75rem;     /* cards, section containers */
-    --borderRadiusSm: 0.5rem;    /* buttons, inputs, tags */
+    --borderRadius: 0.25rem;     /* cards, section containers */
+    --borderRadiusSm: 0.125rem;  /* buttons, inputs, tags */
+
+    /* === LAYOUT === */
+    --container-narrow: (800/16rem);   /* content/text pages */
+    --container-wide: (1280/16rem);    /* grid/listing pages */
   }
 
   // Text styles - can be replaced using CodeStitch's "Content Flair" Stitches

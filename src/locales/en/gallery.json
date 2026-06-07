@@ -4,5 +4,9 @@
 	"topper": "Our Moments",
 	"heading": "Photo Gallery",
 	"p": "A glimpse into our worship, celebrations, and community life.",
-	"empty": "Photos coming soon. Check back after our next celebration!"
+	"empty": "Photos coming soon. Check back after our next celebration!",
+	"close": "Close image",
+	"previous": "Previous image",
+	"next": "Next image",
+	"lightboxAlt": "Full-size gallery photo"
 }

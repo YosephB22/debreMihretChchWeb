@@ -103,8 +103,8 @@
 				"key": "blog",
 				"url": "/blog",
 				"label": {
-					"en": "News",
-					"am": "ዜና"
+					"en": "News & Announcements",
+					"am": "ዜናዎች እና ማስታወቂያዎች"
 				},
 				"children": []
 			}

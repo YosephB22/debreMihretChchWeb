@@ -306,7 +306,9 @@ const entries = navData as NavEntry[];
 					opacity 0.3s;
 				transform-origin: top right;
 				padding: (48/16rem) clamp(1.75rem, 3vw, 2.5rem) (32/16rem) (70/16rem);
-				display: grid;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
 				gap: clamp(1.25rem, 2.6vw, 2.25rem);
 			}
 
@@ -464,7 +466,7 @@ const entries = navData as NavEntry[];
 				margin: 0;
 				box-sizing: border-box;
 				padding: 0 (24/16rem) 0 (24/16rem);
-				background-color: var(--primary);
+				background-color: transparent;
 				opacity: 0;
 				display: flex;
 				visibility: hidden;
@@ -819,7 +821,7 @@ const entries = navData as NavEntry[];
 		transition: background-color 0.2s ease;
 
 		&:hover {
-			background-color: var(--secondaryLight);
+			background-color: var(--primaryDark);
 		}
 	}
 
@@ -831,8 +833,6 @@ const entries = navData as NavEntry[];
 		.cs-donate-btn.cs-shown {
 			display: inline-block;
 			text-align: center;
-			margin-top: 0.5rem;
-			justify-self: center;
 			width: auto;
 		}
 	}

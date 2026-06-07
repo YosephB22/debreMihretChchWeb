@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHeader from "@components/PageHeader/PageHeader.astro";
+import GalleryGrid from "@components/GalleryGrid/GalleryGrid.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
 
@@ -9,37 +11,14 @@ const t = useTranslations(locale);
 
 <BaseLayout title={t("gallery:title")} description={t("gallery:description")}>
 
-	<section id="page-header">
-		<div class="cs-container">
-			<span class="cs-topper">{t("gallery:topper")}</span>
-			<h1 class="cs-title">{t("gallery:heading")}</h1>
-			<p class="cs-text">{t("gallery:p")}</p>
-		</div>
-	</section>
+	<PageHeader topper={t("gallery:topper")} title={t("gallery:heading")} text={t("gallery:p")} />
 
-	<section id="gallery">
-		<div class="cs-container">
-			<p class="cs-text empty">{t("gallery:empty")}</p>
-		</div>
-	</section>
+	<GalleryGrid
+		emptyText={t("gallery:empty")}
+		ariaClose={t("gallery:close")}
+		ariaPrev={t("gallery:previous")}
+		ariaNext={t("gallery:next")}
+		ariaLightboxAlt={t("gallery:lightboxAlt")}
+	/>
 
 </BaseLayout>
-
-<style lang="less">
-	#page-header {
-		padding: clamp(5rem, 10vw, 8rem) 1.25rem clamp(2rem, 4vw, 3rem);
-		text-align: center;
-		background: var(--dark);
-		.cs-container { max-width: (800/16rem); margin: 0 auto; }
-		.cs-topper { color: var(--accent); }
-		.cs-title { color: #fff; }
-		.cs-text { color: rgba(255, 255, 255, 0.8); }
-	}
-
-	#gallery {
-		padding: var(--sectionPadding);
-		text-align: center;
-		.cs-container { max-width: (1280/16rem); margin: 0 auto; }
-		.empty { font-style: italic; color: var(--bodyTextColor); }
-	}
-</style>

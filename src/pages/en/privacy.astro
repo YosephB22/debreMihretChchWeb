@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHeader from "@components/PageHeader/PageHeader.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
 
@@ -9,13 +10,7 @@ const t = useTranslations(locale);
 
 <BaseLayout title={t("privacy:title")} description={t("privacy:description")}>
 
-	<section id="page-header">
-		<div class="cs-container">
-			<span class="cs-topper">{t("privacy:topper")}</span>
-			<h1 class="cs-title">{t("privacy:heading")}</h1>
-			<p class="cs-text">{t("privacy:lastUpdated")}</p>
-		</div>
-	</section>
+	<PageHeader topper={t("privacy:topper")} title={t("privacy:heading")} text={t("privacy:lastUpdated")} />
 
 	<section id="privacy-content">
 		<div class="cs-container">
@@ -62,15 +57,6 @@ const t = useTranslations(locale);
 </BaseLayout>
 
 <style lang="less">
-	#page-header {
-		padding: clamp(5rem, 10vw, 8rem) 1.25rem clamp(2rem, 4vw, 3rem);
-		text-align: center;
-		background: var(--dark);
-		.cs-container { max-width: (800/16rem); margin: 0 auto; }
-		.cs-topper { color: var(--accent); }
-		.cs-title { color: #fff; }
-		.cs-text { color: rgba(255, 255, 255, 0.8); }
-	}
 
 	#privacy-content {
 		padding: var(--sectionPadding);
